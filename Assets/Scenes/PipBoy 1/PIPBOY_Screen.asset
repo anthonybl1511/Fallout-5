@@ -18,10 +18,10 @@ MonoBehaviour:
     m_Value: 10
   intensity:
     m_OverrideState: 1
-    m_Value: 0.05
+    m_Value: 0.092
   response:
     m_OverrideState: 1
-    m_Value: 0.189
+    m_Value: 0
   texture:
     m_OverrideState: 1
     m_Value: {fileID: 2800000, guid: c92a3fb35db0e894d89579ccf581fe99, type: 3}
@@ -46,16 +46,16 @@ MonoBehaviour:
     m_Value: 0.9
   intensity:
     m_OverrideState: 1
-    m_Value: 10
+    m_Value: 24
   scatter:
     m_OverrideState: 1
-    m_Value: 0.36
+    m_Value: 0.055
   clamp:
     m_OverrideState: 0
-    m_Value: 65472
+    m_Value: 65260.47
   tint:
     m_OverrideState: 1
-    m_Value: {r: 0, g: 1, b: 0.034508705, a: 1}
+    m_Value: {r: 0.18567729, g: 1, b: 0, a: 1}
   highQualityFiltering:
     m_OverrideState: 0
     m_Value: 0
@@ -71,7 +71,7 @@ MonoBehaviour:
     dimension: 1
   dirtIntensity:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: 189.71
 --- !u!114 &-1546530491631930147
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -87,7 +87,7 @@ MonoBehaviour:
   active: 1
   distance:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.309
   cropToFit:
     m_OverrideState: 1
     m_Value: 0
@@ -107,24 +107,7 @@ MonoBehaviour:
   - {fileID: -1589494100725914594}
   - {fileID: -1546530491631930147}
   - {fileID: 8648395296636009618}
-  - {fileID: 7222464329002671096}
   - {fileID: -7180842521166668092}
---- !u!114 &7222464329002671096
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81180773991d8724ab7f2d216912b564, type: 3}
-  m_Name: ChromaticAberration
-  m_EditorClassIdentifier: 
-  active: 1
-  intensity:
-    m_OverrideState: 1
-    m_Value: 0.795
 --- !u!114 &8648395296636009618
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -143,13 +126,13 @@ MonoBehaviour:
     m_Value: {r: 0, g: 0, b: 0, a: 1}
   center:
     m_OverrideState: 1
-    m_Value: {x: 0.74, y: 0.65}
+    m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.414
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.445
+    m_Value: 0.472
   rounded:
     m_OverrideState: 0
     m_Value: 0
