@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PipBoy : MonoBehaviour
@@ -19,7 +17,12 @@ public class PipBoy : MonoBehaviour
         radioMoletteAnim = GameObject.Find("FrameDialTune").GetComponent<Animator>();
         menuTabs = GameObject.FindGameObjectsWithTag("tabs");
 
-        for(int i = 0; i < menuTabs.Length; i++)
+        radioMoletteAnim.SetBool("right", true);
+        radioMoletteAnim.SetBool("left", false);
+        handAnim.SetBool("rightRadio", false);
+        handAnim.SetBool("leftRadio", true);
+
+        for (int i = 0; i < menuTabs.Length; i++)
         {
             if (i != menuTabs.Length - 1)
             {
@@ -95,6 +98,9 @@ public class PipBoy : MonoBehaviour
                     radioIndex++;
                     radioMoletteAnim.SetBool("right", true);
                     radioMoletteAnim.SetBool("left", false);
+
+                    handAnim.SetBool("rightRadio", false);
+                    handAnim.SetBool("leftRadio", true);
                 }
             }
             if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -104,6 +110,9 @@ public class PipBoy : MonoBehaviour
                     radioIndex--;
                     radioMoletteAnim.SetBool("right", false);
                     radioMoletteAnim.SetBool("left", true);
+
+                    handAnim.SetBool("rightRadio", true);
+                    handAnim.SetBool("leftRadio", false);
                 }
             }
         }
