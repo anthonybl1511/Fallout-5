@@ -694,6 +694,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4203284110919364358, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 113.399994
+      objectReference: {fileID: 0}
+    - target: {fileID: 7204823709863961824, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -11.900024
+      objectReference: {fileID: 0}
     - target: {fileID: 7281542607283459298, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
       propertyPath: m_Name
       value: ScreenCamera
@@ -796,8 +804,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 2614659801979805972, guid: f6bfe689f979b7b4dae75504550b3fb4, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6bfe689f979b7b4dae75504550b3fb4, type: 3}
