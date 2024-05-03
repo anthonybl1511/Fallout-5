@@ -7,6 +7,7 @@ public class PipBoy : MonoBehaviour
     private Animator pipBoyAnim;
     private Animator handAnim;
     private Animator radioMoletteAnim;
+    private GameObject[] menuTabs;
     private int menuIndex;
     private int radioIndex;
     private bool radioActive;
@@ -16,6 +17,15 @@ public class PipBoy : MonoBehaviour
         pipBoyAnim = GameObject.Find("FrameDialMenu").GetComponent<Animator>();
         handAnim = GameObject.Find("R_wrist").GetComponent<Animator>();
         radioMoletteAnim = GameObject.Find("FrameDialTune").GetComponent<Animator>();
+        menuTabs = GameObject.FindGameObjectsWithTag("tabs");
+
+        for(int i = 0; i < menuTabs.Length; i++)
+        {
+            if (i != menuTabs.Length - 1)
+            {
+                menuTabs[i].SetActive(false);
+            }
+        }
     }
 
     private void Update()
@@ -102,14 +112,24 @@ public class PipBoy : MonoBehaviour
     private void GoToStats()
     {
         radioActive = false;
-
-        pipBoyAnim.SetBool("stats", true);
+        for (int i = 0; i < menuTabs.Length; i++)
+        {
+            if(i != 4)
+            {
+                menuTabs[i].SetActive(false);
+            }
+            else
+            {
+                menuTabs[i].SetActive(true);
+            }
+        }
+        pipBoyAnim.SetBool("stat", true);
         pipBoyAnim.SetBool("inv", false);
         pipBoyAnim.SetBool("data", false);
         pipBoyAnim.SetBool("map", false);
         pipBoyAnim.SetBool("radio", false);
 
-        handAnim.SetBool("stats", true);
+        handAnim.SetBool("stat", true);
         handAnim.SetBool("inv", false);
         handAnim.SetBool("data", false);
         handAnim.SetBool("map", false);
@@ -119,13 +139,24 @@ public class PipBoy : MonoBehaviour
     {
         radioActive = false;
 
-        pipBoyAnim.SetBool("stats", false);
+        for (int i = 0; i < menuTabs.Length; i++)
+        {
+            if (i != 3)
+            {
+                menuTabs[i].SetActive(false);
+            }
+            else
+            {
+                menuTabs[i].SetActive(true);
+            }
+        }
+        pipBoyAnim.SetBool("stat", false);
         pipBoyAnim.SetBool("inv", true);
         pipBoyAnim.SetBool("data", false);
         pipBoyAnim.SetBool("map", false);
         pipBoyAnim.SetBool("radio", false);
 
-        handAnim.SetBool("stats", false);
+        handAnim.SetBool("stat", false);
         handAnim.SetBool("inv", true);
         handAnim.SetBool("data", false);
         handAnim.SetBool("map", false);
@@ -135,13 +166,25 @@ public class PipBoy : MonoBehaviour
     {
         radioActive = false;
 
-        pipBoyAnim.SetBool("stats", false);
+        for (int i = 0; i < menuTabs.Length; i++)
+        {
+            if (i != 2)
+            {
+                menuTabs[i].SetActive(false);
+            }
+            else
+            {
+                menuTabs[i].SetActive(true);
+            }
+        }
+
+        pipBoyAnim.SetBool("stat", false);
         pipBoyAnim.SetBool("inv", false);
         pipBoyAnim.SetBool("data", true);
         pipBoyAnim.SetBool("map", false);
         pipBoyAnim.SetBool("radio", false);
 
-        handAnim.SetBool("stats", false);
+        handAnim.SetBool("stat", false);
         handAnim.SetBool("inv", false);
         handAnim.SetBool("data", true);
         handAnim.SetBool("map", false);
@@ -151,13 +194,24 @@ public class PipBoy : MonoBehaviour
     {
         radioActive = false;
 
-        pipBoyAnim.SetBool("stats", false);
+        for (int i = 0; i < menuTabs.Length; i++)
+        {
+            if (i != 1)
+            {
+                menuTabs[i].SetActive(false);
+            }
+            else
+            {
+                menuTabs[i].SetActive(true);
+            }
+        }
+        pipBoyAnim.SetBool("stat", false);
         pipBoyAnim.SetBool("inv", false);
         pipBoyAnim.SetBool("data", false);
         pipBoyAnim.SetBool("map", true);
         pipBoyAnim.SetBool("radio", false);
 
-        handAnim.SetBool("stats", false);
+        handAnim.SetBool("stat", false);
         handAnim.SetBool("inv", false);
         handAnim.SetBool("data", false);
         handAnim.SetBool("map", true);
@@ -167,13 +221,25 @@ public class PipBoy : MonoBehaviour
     {
         radioActive = true;
 
-        pipBoyAnim.SetBool("stats", false);
+        for (int i = 0; i < menuTabs.Length; i++)
+        {
+            if (i != 0)
+            {
+                menuTabs[i].SetActive(false);
+            }
+            else
+            {
+                menuTabs[i].SetActive(true);
+            }
+        }
+
+        pipBoyAnim.SetBool("stat", false);
         pipBoyAnim.SetBool("inv", false);
         pipBoyAnim.SetBool("data", false);
         pipBoyAnim.SetBool("map", false);
         pipBoyAnim.SetBool("radio", true);
 
-        handAnim.SetBool("stats", false);
+        handAnim.SetBool("stat", false);
         handAnim.SetBool("inv", false);
         handAnim.SetBool("data", false);
         handAnim.SetBool("map", false);
