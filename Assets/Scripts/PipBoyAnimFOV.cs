@@ -34,4 +34,9 @@ public class PipBoyAnimFOV : MonoBehaviour
             mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, initialFOV, 2 * Time.deltaTime);
         }
     }
+
+    public void DisableAnimator()
+    {
+        GetComponent<Animator>().enabled = false;
+    }
 }
