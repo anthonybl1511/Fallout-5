@@ -9,6 +9,7 @@ public class PipBoy : MonoBehaviour
     private int menuIndex;
     private int radioIndex;
     private bool radioActive;
+    private bool pipboyActive;
 
     private void Start()
     {
@@ -17,10 +18,7 @@ public class PipBoy : MonoBehaviour
         radioMoletteAnim = GameObject.Find("FrameDialTune").GetComponent<Animator>();
         menuTabs = GameObject.FindGameObjectsWithTag("tabs");
 
-        radioMoletteAnim.SetBool("right", true);
-        radioMoletteAnim.SetBool("left", false);
-        handAnim.SetBool("rightRadio", false);
-        handAnim.SetBool("leftRadio", true);
+        ResetToNeutral();
 
         for (int i = 0; i < menuTabs.Length; i++)
         {
@@ -33,91 +31,129 @@ public class PipBoy : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.UpArrow))
+        if(pipboyActive)
         {
-            if(menuIndex > 0)
+            if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                pipBoyAnim.SetTrigger("changeTab");
-                handAnim.SetTrigger("changeTab");
-
-                menuIndex--;
-                switch (menuIndex)
+                if (menuIndex > 0)
                 {
-                    case 0:
-                        GoToStats();
-                        break;
-                    case 1:
-                        GoToInv();
-                        break;
-                    case 2:
-                        GoToData();
-                        break;
-                    case 3:
-                        GoToMap();
-                        break;
-                    case 4:
-                        GoToRadio();
-                        break;
+                    pipBoyAnim.SetTrigger("changeTab");
+                    handAnim.SetTrigger("changeTab");
+
+                    menuIndex--;
+                    switch (menuIndex)
+                    {
+                        case 0:
+                            GoToStats();
+                            break;
+                        case 1:
+                            GoToInv();
+                            break;
+                        case 2:
+                            GoToData();
+                            break;
+                        case 3:
+                            GoToMap();
+                            break;
+                        case 4:
+                            GoToRadio();
+                            break;
+                    }
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                if (menuIndex < 4)
+                {
+                    pipBoyAnim.SetTrigger("changeTab");
+                    handAnim.SetTrigger("changeTab");
+
+                    menuIndex++;
+                    switch (menuIndex)
+                    {
+                        case 0:
+                            GoToStats();
+                            break;
+                        case 1:
+                            GoToInv();
+                            break;
+                        case 2:
+                            GoToData();
+                            break;
+                        case 3:
+                            GoToMap();
+                            break;
+                        case 4:
+                            GoToRadio();
+                            break;
+                    }
+                }
+            }
+            if (radioActive)
+            {
+                if (Input.GetKeyDown(KeyCode.RightArrow))
+                {
+                    if (radioIndex < 1)
+                    {
+                        radioIndex++;
+                        radioMoletteAnim.SetBool("right", true);
+                        radioMoletteAnim.SetBool("left", false);
+
+                        handAnim.SetBool("rightRadio", false);
+                        handAnim.SetBool("leftRadio", true);
+                    }
+                }
+                if (Input.GetKeyDown(KeyCode.LeftArrow))
+                {
+                    if (radioIndex > 0)
+                    {
+                        radioIndex--;
+                        radioMoletteAnim.SetBool("right", false);
+                        radioMoletteAnim.SetBool("left", true);
+
+                        handAnim.SetBool("rightRadio", true);
+                        handAnim.SetBool("leftRadio", false);
+                    }
                 }
             }
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
-            if (menuIndex < 4)
+            if(pipboyActive)
             {
-                pipBoyAnim.SetTrigger("changeTab");
-                handAnim.SetTrigger("changeTab");
+                GameObject.Find("Hands").GetComponent<Animator>().enabled = true;
+                GameObject.Find("Hands").GetComponent<Animator>().SetTrigger("close");
+                pipboyActive = false;
 
-                menuIndex++;
-                switch (menuIndex)
-                {
-                    case 0:
-                        GoToStats();
-                        break;
-                    case 1:
-                        GoToInv();
-                        break;
-                    case 2:
-                        GoToData();
-                        break;
-                    case 3:
-                        GoToMap();
-                        break;
-                    case 4:
-                        GoToRadio();
-                        break;
-                }
+                ResetToNeutral();
             }
-        }
-        if(radioActive)
-        {
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            else
             {
-                if (radioIndex < 1)
-                {
-                    radioIndex++;
-                    radioMoletteAnim.SetBool("right", true);
-                    radioMoletteAnim.SetBool("left", false);
-
-                    handAnim.SetBool("rightRadio", false);
-                    handAnim.SetBool("leftRadio", true);
-                }
-            }
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                if (radioIndex > 0)
-                {
-                    radioIndex--;
-                    radioMoletteAnim.SetBool("right", false);
-                    radioMoletteAnim.SetBool("left", true);
-
-                    handAnim.SetBool("rightRadio", true);
-                    handAnim.SetBool("leftRadio", false);
-                }
+                GameObject.Find("Hands").GetComponent<Animator>().enabled = true;
+                GameObject.Find("Hands").GetComponent<Animator>().SetTrigger("open");
+                pipboyActive = true;
             }
         }
     }
 
+    private void ResetToNeutral()
+    {
+        radioMoletteAnim.SetBool("right", true);
+        radioMoletteAnim.SetBool("left", false);
+        handAnim.SetBool("rightRadio", false);
+        handAnim.SetBool("leftRadio", true);
+        pipBoyAnim.SetBool("stat", true);
+        pipBoyAnim.SetBool("inv", false);
+        pipBoyAnim.SetBool("data", false);
+        pipBoyAnim.SetBool("map", false);
+        pipBoyAnim.SetBool("radio", false);
+        handAnim.SetBool("stat", true);
+        handAnim.SetBool("inv", false);
+        handAnim.SetBool("data", false);
+        handAnim.SetBool("map", false);
+        handAnim.SetBool("radio", false);
+    }
     private void GoToStats()
     {
         radioActive = false;
