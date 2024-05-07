@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PipBoy : MonoBehaviour
 {
+    public static PipBoy instance;
     private Animator pipBoyAnim;
     private Animator handAnim;
     private Animator radioMoletteAnim;
@@ -13,6 +14,7 @@ public class PipBoy : MonoBehaviour
 
     private void Start()
     {
+        instance = this;
         pipBoyAnim = GameObject.Find("FrameDialMenu").GetComponent<Animator>();
         handAnim = GameObject.Find("R_wrist").GetComponent<Animator>();
         radioMoletteAnim = GameObject.Find("FrameDialTune").GetComponent<Animator>();
