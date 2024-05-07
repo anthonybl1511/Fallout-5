@@ -21,6 +21,11 @@ public class PipBoyAnimFOV : MonoBehaviour
         isFocused = true;
     }
 
+    public void UnFocusOnPipboy()
+    {
+        isFocused = false;
+    }
+
     private void Update()
     {
         if(isFocused)
@@ -30,7 +35,7 @@ public class PipBoyAnimFOV : MonoBehaviour
         }
         else
         {
-            canvasCam.fieldOfView = Mathf.Lerp(canvasCam.fieldOfView, initialFOV, 3.2f * Time.deltaTime);
+            canvasCam.fieldOfView = Mathf.Lerp(canvasCam.fieldOfView, initialFOV, 1.4f * Time.deltaTime);
             mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, initialFOV, 2 * Time.deltaTime);
         }
     }
