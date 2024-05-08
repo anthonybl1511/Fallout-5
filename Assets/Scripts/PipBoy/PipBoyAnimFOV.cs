@@ -35,7 +35,7 @@ public class PipBoyAnimFOV : MonoBehaviour
         }
         else
         {
-            canvasCam.fieldOfView = Mathf.Lerp(canvasCam.fieldOfView, initialFOV, 1.4f * Time.deltaTime);
+            canvasCam.fieldOfView = Mathf.Lerp(canvasCam.fieldOfView, initialFOV, 0.8f * Time.deltaTime);
             mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, initialFOV, 2 * Time.deltaTime);
         }
     }
