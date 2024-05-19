@@ -30,7 +30,7 @@ public class PipBoyAnimFOV : MonoBehaviour
     {
         if(isFocused)
         {
-            canvasCam.fieldOfView = Mathf.Lerp(canvasCam.fieldOfView, focusedFOV, 3.2f * Time.deltaTime);
+            canvasCam.fieldOfView = Mathf.Lerp(canvasCam.fieldOfView, focusedFOV, 1.2f * Time.deltaTime);
             mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, focusedFOV / 2, 2 * Time.deltaTime);
         }
         else
