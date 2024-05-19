@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private float mouseSensitivity = 2;
+    [SerializeField] private InputManager InputManager;
 
-    // Update is called once per frame
-    void Update()
+    private float Xrotation;
+
+    private void Update()
     {
-        
+        Vector2 mouseLook;
+        mouseLook.y = InputManager.inputMaster.CameraLook.xAxis.ReadValue<float>() * mouseSensitivity * Time.deltaTime;
+        mouseLook.x = InputManager.inputMaster.CameraLook.yAxis.ReadValue<float>() * mouseSensitivity * Time.deltaTime;
+
+        Xrotation -= mouseLook.x;
+
+        transform.localRotation = Quaternion.Euler(Mathf.Clamp(Xrotation, -90f, 90f),0, 0);
+
+        PlayerMovement.instance.transform.Rotate(Vector3.up * mouseLook.y);
     }
 }

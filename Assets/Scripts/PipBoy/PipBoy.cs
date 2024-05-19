@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PipBoy : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class PipBoy : MonoBehaviour
     private int radioIndex;
     private bool radioActive;
     private bool pipboyActive;
+    
+    [SerializeField] private InputManager InputManager;
+
 
     private void Start()
     {
@@ -29,10 +33,17 @@ public class PipBoy : MonoBehaviour
                 menuTabs[i].SetActive(false);
             }
         }
+
+    }
+
+    public bool getActive()
+    {
+        return pipboyActive;
     }
 
     private void Update()
     {
+
         if(pipboyActive)
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))
