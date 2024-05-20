@@ -8,6 +8,7 @@ public class PipBoyAnimFOV : MonoBehaviour
     private Camera mainCam;
     [SerializeField] private float initialFOV;
     [SerializeField] private float focusedFOV;
+    [SerializeField] private AudioSource IdleSound;
 
     private bool isFocused = false;
 
@@ -19,25 +20,40 @@ public class PipBoyAnimFOV : MonoBehaviour
     public void FocusOnPipboy()
     {
         isFocused = true;
+        StartCoroutine(AudioFade(IdleSound, 0.3f, 1));
     }
 
     public void UnFocusOnPipboy()
     {
         isFocused = false;
+        StartCoroutine(AudioFade(IdleSound, 0.3f, 0));
     }
 
     private void Update()
     {
         if(isFocused)
         {
-            canvasCam.fieldOfView = Mathf.Lerp(canvasCam.fieldOfView, focusedFOV, 1.2f * Time.deltaTime);
-            mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, focusedFOV / 2, 2 * Time.deltaTime);
+            canvasCam.fieldOfView = Mathf.Lerp(canvasCam.fieldOfView, focusedFOV, 4f * Time.deltaTime);
+            mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, focusedFOV / 2, 3.6f * Time.deltaTime);
         }
         else
         {
             canvasCam.fieldOfView = Mathf.Lerp(canvasCam.fieldOfView, initialFOV, 0.8f * Time.deltaTime);
-            mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, initialFOV, 2 * Time.deltaTime);
+            mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, initialFOV, 3.6f * Time.deltaTime);
         }
+    }
+
+    public static IEnumerator AudioFade(AudioSource audioSource, float duration, float targetVolume)
+    {
+        float currentTime = 0;
+        float start = audioSource.volume;
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            audioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
+            yield return null;
+        }
+        yield break;
     }
 
     public void DisableAnimator()
