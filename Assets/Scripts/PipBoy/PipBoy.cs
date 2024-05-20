@@ -12,8 +12,17 @@ public class PipBoy : MonoBehaviour
     private int radioIndex;
     private bool radioActive;
     private bool pipboyActive;
-    
-    [SerializeField] private InputManager InputManager;
+
+    [SerializeField] private AudioSource UISounds;
+    [SerializeField] private AudioSource navigationSounds;
+
+    [SerializeField] private AudioClip[] driveAndStaticsSounds;
+    [SerializeField] private AudioClip tabLeftSound;
+    [SerializeField] private AudioClip tabRightSound;
+    [SerializeField] private AudioClip pibboyUp;
+    [SerializeField] private AudioClip pibboyDown;
+
+    [SerializeField] private InputManager inputManager;
 
 
     private void Start()
@@ -53,6 +62,12 @@ public class PipBoy : MonoBehaviour
                     pipBoyAnim.SetTrigger("changeTab");
                     handAnim.SetTrigger("changeTab");
 
+                    UISounds.clip = driveAndStaticsSounds[Random.Range(0, driveAndStaticsSounds.Length)];
+                    UISounds.Play();
+
+                    navigationSounds.clip = tabRightSound;
+                    navigationSounds.Play();
+
                     menuIndex--;
                     switch (menuIndex)
                     {
@@ -80,6 +95,12 @@ public class PipBoy : MonoBehaviour
                 {
                     pipBoyAnim.SetTrigger("changeTab");
                     handAnim.SetTrigger("changeTab");
+
+                    UISounds.clip = driveAndStaticsSounds[Random.Range(0, driveAndStaticsSounds.Length)];
+                    UISounds.Play();
+
+                    navigationSounds.clip = tabLeftSound;
+                    navigationSounds.Play();
 
                     menuIndex++;
                     switch (menuIndex)
@@ -135,6 +156,9 @@ public class PipBoy : MonoBehaviour
         {
             if(pipboyActive)
             {
+                navigationSounds.clip = pibboyDown;
+                navigationSounds.Play();
+
                 GameObject.Find("Hands").GetComponent<Animator>().enabled = true;
                 GameObject.Find("Hands").GetComponent<Animator>().SetTrigger("close");
                 pipboyActive = false;
@@ -143,6 +167,9 @@ public class PipBoy : MonoBehaviour
             }
             else
             {
+                navigationSounds.clip = pibboyUp;
+                navigationSounds.Play();
+
                 GameObject.Find("Hands").GetComponent<Animator>().enabled = true;
                 GameObject.Find("Hands").GetComponent<Animator>().SetTrigger("open");
                 pipboyActive = true;
