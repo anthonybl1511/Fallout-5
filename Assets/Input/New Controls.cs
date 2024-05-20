@@ -362,7 +362,7 @@ public partial class @NewControls: IInputActionCollection2, IDisposable
             ""id"": ""001a0ee1-2a83-456a-a22e-61b3c770d446"",
             ""actions"": [
                 {
-                    ""name"": ""SwitchTabs"",
+                    ""name"": ""Navigate"",
                     ""type"": ""Value"",
                     ""id"": ""c608d976-135f-4bec-90c8-9a66bcb469aa"",
                     ""expectedControlType"": ""Axis"",
@@ -371,22 +371,13 @@ public partial class @NewControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""click"",
-                    ""type"": ""Button"",
-                    ""id"": ""e83e4932-f7ac-4a90-bc23-ab11a05120d4"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Navigate"",
-                    ""type"": ""Button"",
+                    ""name"": ""SwitchTabs"",
+                    ""type"": ""Value"",
                     ""id"": ""70eae055-7745-4f92-a3d9-3f9bbff999b9"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""OpenClose"",
@@ -396,39 +387,103 @@ public partial class @NewControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""click"",
+                    ""type"": ""Button"",
+                    ""id"": ""e83e4932-f7ac-4a90-bc23-ab11a05120d4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": """",
-                    ""id"": ""87999290-ed76-4dd4-a555-3f0f9467d32f"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""click"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Triggers"",
+                    ""name"": ""Controller"",
                     ""id"": ""8f43bff5-045e-4151-a004-264349dc1aa8"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SwitchTabs"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""482ceda9-4da0-4104-b2d7-2a8a2a81ef9b"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""668c3cff-5830-4e9b-99f3-6882bcdd68d4"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""11785639-9e6d-4819-99ff-e847c202afcc"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""9a573bcf-4ddb-49d0-9861-9f65aa88ebdb"",
+                    ""path"": ""<XInputController>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Keyboard"",
+                    ""id"": ""773e805e-da2a-454e-9cc8-10e4509f5c6a"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""negative"",
-                    ""id"": ""11785639-9e6d-4819-99ff-e847c202afcc"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""id"": ""52e4a4fb-8ece-496b-974d-625b70fee10f"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SwitchTabs"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""60ba0c62-a1e5-4b03-9e6f-5321b9b46e69"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -439,7 +494,7 @@ public partial class @NewControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SwitchTabs"",
+                    ""action"": ""Navigate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -450,31 +505,9 @@ public partial class @NewControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SwitchTabs"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""482ceda9-4da0-4104-b2d7-2a8a2a81ef9b"",
-                    ""path"": ""<XInputController>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SwitchTabs"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""15e7baa7-9c70-40e0-a568-8d4b9e23945b"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
                     ""action"": ""Navigate"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -497,6 +530,105 @@ public partial class @NewControls: IInputActionCollection2, IDisposable
                     ""action"": ""OpenClose"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Triggers"",
+                    ""id"": ""f5eb837e-1685-4a82-b548-59786d818673"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchTabs"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""68198b8a-6d55-42e5-a3aa-83290d876876"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchTabs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""3650622a-bad8-491c-ba74-c4ef54774d89"",
+                    ""path"": ""<XInputController>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchTabs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""87999290-ed76-4dd4-a555-3f0f9467d32f"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Keyboard"",
+                    ""id"": ""8ff9e9d1-f9fc-42fd-8af7-e53f5b0edc61"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchTabs"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""847e7653-de2b-4758-ac85-3357b9e71fb7"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchTabs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""4509b129-49ad-447c-b210-a230e967a26e"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchTabs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""5400d584-6706-4010-83fc-731fd41483c0"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchTabs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""52be6cc3-8df2-41c5-bf4b-033e342e2e7e"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchTabs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -515,10 +647,10 @@ public partial class @NewControls: IInputActionCollection2, IDisposable
         m_CameraLook_yAxis = m_CameraLook.FindAction("yAxis", throwIfNotFound: true);
         // PipBoyInput
         m_PipBoyInput = asset.FindActionMap("PipBoyInput", throwIfNotFound: true);
-        m_PipBoyInput_SwitchTabs = m_PipBoyInput.FindAction("SwitchTabs", throwIfNotFound: true);
-        m_PipBoyInput_click = m_PipBoyInput.FindAction("click", throwIfNotFound: true);
         m_PipBoyInput_Navigate = m_PipBoyInput.FindAction("Navigate", throwIfNotFound: true);
+        m_PipBoyInput_SwitchTabs = m_PipBoyInput.FindAction("SwitchTabs", throwIfNotFound: true);
         m_PipBoyInput_OpenClose = m_PipBoyInput.FindAction("OpenClose", throwIfNotFound: true);
+        m_PipBoyInput_click = m_PipBoyInput.FindAction("click", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -704,18 +836,18 @@ public partial class @NewControls: IInputActionCollection2, IDisposable
     // PipBoyInput
     private readonly InputActionMap m_PipBoyInput;
     private List<IPipBoyInputActions> m_PipBoyInputActionsCallbackInterfaces = new List<IPipBoyInputActions>();
-    private readonly InputAction m_PipBoyInput_SwitchTabs;
-    private readonly InputAction m_PipBoyInput_click;
     private readonly InputAction m_PipBoyInput_Navigate;
+    private readonly InputAction m_PipBoyInput_SwitchTabs;
     private readonly InputAction m_PipBoyInput_OpenClose;
+    private readonly InputAction m_PipBoyInput_click;
     public struct PipBoyInputActions
     {
         private @NewControls m_Wrapper;
         public PipBoyInputActions(@NewControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @SwitchTabs => m_Wrapper.m_PipBoyInput_SwitchTabs;
-        public InputAction @click => m_Wrapper.m_PipBoyInput_click;
         public InputAction @Navigate => m_Wrapper.m_PipBoyInput_Navigate;
+        public InputAction @SwitchTabs => m_Wrapper.m_PipBoyInput_SwitchTabs;
         public InputAction @OpenClose => m_Wrapper.m_PipBoyInput_OpenClose;
+        public InputAction @click => m_Wrapper.m_PipBoyInput_click;
         public InputActionMap Get() { return m_Wrapper.m_PipBoyInput; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -725,34 +857,34 @@ public partial class @NewControls: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PipBoyInputActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PipBoyInputActionsCallbackInterfaces.Add(instance);
-            @SwitchTabs.started += instance.OnSwitchTabs;
-            @SwitchTabs.performed += instance.OnSwitchTabs;
-            @SwitchTabs.canceled += instance.OnSwitchTabs;
-            @click.started += instance.OnClick;
-            @click.performed += instance.OnClick;
-            @click.canceled += instance.OnClick;
             @Navigate.started += instance.OnNavigate;
             @Navigate.performed += instance.OnNavigate;
             @Navigate.canceled += instance.OnNavigate;
+            @SwitchTabs.started += instance.OnSwitchTabs;
+            @SwitchTabs.performed += instance.OnSwitchTabs;
+            @SwitchTabs.canceled += instance.OnSwitchTabs;
             @OpenClose.started += instance.OnOpenClose;
             @OpenClose.performed += instance.OnOpenClose;
             @OpenClose.canceled += instance.OnOpenClose;
+            @click.started += instance.OnClick;
+            @click.performed += instance.OnClick;
+            @click.canceled += instance.OnClick;
         }
 
         private void UnregisterCallbacks(IPipBoyInputActions instance)
         {
-            @SwitchTabs.started -= instance.OnSwitchTabs;
-            @SwitchTabs.performed -= instance.OnSwitchTabs;
-            @SwitchTabs.canceled -= instance.OnSwitchTabs;
-            @click.started -= instance.OnClick;
-            @click.performed -= instance.OnClick;
-            @click.canceled -= instance.OnClick;
             @Navigate.started -= instance.OnNavigate;
             @Navigate.performed -= instance.OnNavigate;
             @Navigate.canceled -= instance.OnNavigate;
+            @SwitchTabs.started -= instance.OnSwitchTabs;
+            @SwitchTabs.performed -= instance.OnSwitchTabs;
+            @SwitchTabs.canceled -= instance.OnSwitchTabs;
             @OpenClose.started -= instance.OnOpenClose;
             @OpenClose.performed -= instance.OnOpenClose;
             @OpenClose.canceled -= instance.OnOpenClose;
+            @click.started -= instance.OnClick;
+            @click.performed -= instance.OnClick;
+            @click.canceled -= instance.OnClick;
         }
 
         public void RemoveCallbacks(IPipBoyInputActions instance)
@@ -784,9 +916,9 @@ public partial class @NewControls: IInputActionCollection2, IDisposable
     }
     public interface IPipBoyInputActions
     {
-        void OnSwitchTabs(InputAction.CallbackContext context);
-        void OnClick(InputAction.CallbackContext context);
         void OnNavigate(InputAction.CallbackContext context);
+        void OnSwitchTabs(InputAction.CallbackContext context);
         void OnOpenClose(InputAction.CallbackContext context);
+        void OnClick(InputAction.CallbackContext context);
     }
 }

@@ -36,6 +36,44 @@ public class PipBoy : MonoBehaviour
 
     }
 
+    public void Click()
+    {
+
+    }
+
+    public void ChangeIndex(int index)
+    {
+        if(pipboyActive)
+        {
+            menuIndex += index;
+
+            menuIndex = Mathf.Clamp(menuIndex, 0, 4);
+
+            pipBoyAnim.SetTrigger("changeTab");
+            handAnim.SetTrigger("changeTab");
+
+            switch (menuIndex)
+            {
+                case 0:
+                    GoToStats();
+                    break;
+                case 1:
+                    GoToInv();
+                    break;
+                case 2:
+                    GoToData();
+                    break;
+                case 3:
+                    GoToMap();
+                    break;
+                case 4:
+                    GoToRadio();
+                    break;
+            }
+        }
+        
+    }
+
     public bool getActive()
     {
         return pipboyActive;
@@ -46,62 +84,6 @@ public class PipBoy : MonoBehaviour
 
         if(pipboyActive)
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                if (menuIndex > 0)
-                {
-                    pipBoyAnim.SetTrigger("changeTab");
-                    handAnim.SetTrigger("changeTab");
-
-                    menuIndex--;
-                    switch (menuIndex)
-                    {
-                        case 0:
-                            GoToStats();
-                            break;
-                        case 1:
-                            GoToInv();
-                            break;
-                        case 2:
-                            GoToData();
-                            break;
-                        case 3:
-                            GoToMap();
-                            break;
-                        case 4:
-                            GoToRadio();
-                            break;
-                    }
-                }
-            }
-            if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                if (menuIndex < 4)
-                {
-                    pipBoyAnim.SetTrigger("changeTab");
-                    handAnim.SetTrigger("changeTab");
-
-                    menuIndex++;
-                    switch (menuIndex)
-                    {
-                        case 0:
-                            GoToStats();
-                            break;
-                        case 1:
-                            GoToInv();
-                            break;
-                        case 2:
-                            GoToData();
-                            break;
-                        case 3:
-                            GoToMap();
-                            break;
-                        case 4:
-                            GoToRadio();
-                            break;
-                    }
-                }
-            }
             if (radioActive)
             {
                 if (Input.GetKeyDown(KeyCode.RightArrow))

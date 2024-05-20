@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
+    public static MouseLook instance;
+
     [SerializeField] private float mouseSensitivity = 2;
     [SerializeField] private InputManager InputManager;
 
     private float Xrotation;
+
+    private void Start()
+    {
+        instance = this;
+    }
 
     private void Update()
     {
