@@ -55,7 +55,6 @@ public class PipBoy : MonoBehaviour
         if(pipboyActive)
         {
             menuIndex += index;
-            print(menuIndex);
             menuIndex = Mathf.Clamp(menuIndex, 0, 4);
 
             pipBoyAnim.SetTrigger("changeTab");
@@ -90,19 +89,12 @@ public class PipBoy : MonoBehaviour
         
     }
 
-    public bool getActive()
+    public void navigate(int index)
     {
-        return pipboyActive;
-    }
-
-    private void Update()
-    {
-
-        if(pipboyActive)
-        {
-            if (radioActive)
+        if (pipboyActive) { 
+            if(radioActive)
             {
-                if (Input.GetKeyDown(KeyCode.RightArrow))
+                if (index > 0)
                 {
                     if (radioIndex < 1)
                     {
@@ -114,7 +106,7 @@ public class PipBoy : MonoBehaviour
                         handAnim.SetBool("leftRadio", true);
                     }
                 }
-                if (Input.GetKeyDown(KeyCode.LeftArrow))
+                if (index < 0)
                 {
                     if (radioIndex > 0)
                     {
@@ -127,31 +119,40 @@ public class PipBoy : MonoBehaviour
                     }
                 }
             }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            if(pipboyActive)
-            {
-                navigationSounds.clip = pibboyDown;
-                navigationSounds.Play();
-
-                GameObject.Find("Hands").GetComponent<Animator>().enabled = true;
-                GameObject.Find("Hands").GetComponent<Animator>().SetTrigger("close");
-                pipboyActive = false;
-
-                ResetToNeutral();
-            }
             else
             {
-                navigationSounds.clip = pibboyUp;
-                navigationSounds.Play();
-
-                GameObject.Find("Hands").GetComponent<Animator>().enabled = true;
-                GameObject.Find("Hands").GetComponent<Animator>().SetTrigger("open");
-                pipboyActive = true;
+                 
             }
         }
+    }
+
+    public void OpenClose()
+    {
+        if (pipboyActive)
+        {
+            navigationSounds.clip = pibboyDown;
+            navigationSounds.Play();
+
+            GameObject.Find("Hands").GetComponent<Animator>().enabled = true;
+            GameObject.Find("Hands").GetComponent<Animator>().SetTrigger("close");
+            pipboyActive = false;
+
+            ResetToNeutral();
+        }
+        else
+        {
+            navigationSounds.clip = pibboyUp;
+            navigationSounds.Play();
+
+            GameObject.Find("Hands").GetComponent<Animator>().enabled = true;
+            GameObject.Find("Hands").GetComponent<Animator>().SetTrigger("open");
+            pipboyActive = true;
+        }
+    }
+
+    public bool getActive()
+    {
+        return pipboyActive;
     }
 
     private void ResetToNeutral()

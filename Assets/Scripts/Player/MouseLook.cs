@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class MouseLook : MonoBehaviour
 {
@@ -10,22 +11,36 @@ public class MouseLook : MonoBehaviour
     [SerializeField] private InputManager InputManager;
 
     private float Xrotation;
+    private Volume postProcess;
 
     private void Start()
     {
         instance = this;
+
+        postProcess = GetComponent<Volume>();
     }
 
     private void Update()
     {
-        Vector2 mouseLook;
-        mouseLook.y = InputManager.inputMaster.CameraLook.xAxis.ReadValue<float>() * mouseSensitivity * Time.deltaTime;
-        mouseLook.x = InputManager.inputMaster.CameraLook.yAxis.ReadValue<float>() * mouseSensitivity * Time.deltaTime;
 
-        Xrotation -= mouseLook.x;
+        if (!PipBoy.instance.getActive())
+        {
+            Vector2 mouseLook;
+            mouseLook.y = InputManager.inputMaster.CameraLook.xAxis.ReadValue<float>() * mouseSensitivity * Time.deltaTime;
+            mouseLook.x = InputManager.inputMaster.CameraLook.yAxis.ReadValue<float>() * mouseSensitivity * Time.deltaTime;
 
-        transform.localRotation = Quaternion.Euler(Mathf.Clamp(Xrotation, -90f, 90f),0, 0);
+            Xrotation -= mouseLook.x;
 
-        PlayerMovement.instance.transform.Rotate(Vector3.up * mouseLook.y);
+            transform.localRotation = Quaternion.Euler(Mathf.Clamp(Xrotation, -90f, 90f), 0, 0);
+
+            PlayerMovement.instance.transform.Rotate(Vector3.up * mouseLook.y);
+
+            postProcess.enabled = false;
+        }
+        else
+        {
+            postProcess.enabled = true;
+        }
+        
     }
 }

@@ -49,7 +49,10 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        MovePlayer();
+        if (!PipBoy.instance.getActive())
+        {
+            MovePlayer();
+        }
     }
 
     void MovePlayer()
