@@ -55,7 +55,7 @@ public class PipBoy : MonoBehaviour
         if(pipboyActive)
         {
             menuIndex += index;
-
+            print(menuIndex);
             menuIndex = Mathf.Clamp(menuIndex, 0, 4);
 
             pipBoyAnim.SetTrigger("changeTab");

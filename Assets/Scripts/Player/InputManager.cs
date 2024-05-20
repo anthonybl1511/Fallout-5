@@ -15,7 +15,7 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
-        if(inputMaster.PipBoyInput.Navigate.triggered)
+        if(inputMaster.PipBoyInput.SwitchTabs.triggered)
         {
             PipBoy.instance.ChangeIndex((int)inputMaster.PipBoyInput.SwitchTabs.ReadValue<float>());
         }
