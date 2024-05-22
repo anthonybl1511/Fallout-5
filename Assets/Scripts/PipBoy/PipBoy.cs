@@ -8,6 +8,8 @@ public class PipBoy : MonoBehaviour
     private Animator handAnim;
     private Animator radioMoletteAnim;
     private GameObject[] menuTabs;
+    private GameObject[] menuScreens;
+
     private int menuIndex;
     private int radioIndex;
     private bool radioActive;
@@ -28,10 +30,13 @@ public class PipBoy : MonoBehaviour
     private void Start()
     {
         instance = this;
+
+
         pipBoyAnim = GameObject.Find("FrameDialMenu").GetComponent<Animator>();
         handAnim = GameObject.Find("R_wrist").GetComponent<Animator>();
         radioMoletteAnim = GameObject.Find("FrameDialTune").GetComponent<Animator>();
         menuTabs = GameObject.FindGameObjectsWithTag("tabs");
+        menuScreens = GameObject.FindGameObjectsWithTag("screens");
 
         ResetToNeutral();
 
@@ -40,6 +45,14 @@ public class PipBoy : MonoBehaviour
             if (i != menuTabs.Length - 1)
             {
                 menuTabs[i].SetActive(false);
+            }
+        }
+
+        for (int i = 0; i < menuScreens.Length; i++)
+        {
+            if (i != menuScreens.Length - 1)
+            {
+                menuScreens[i].SetActive(false);
             }
         }
 
@@ -186,6 +199,17 @@ public class PipBoy : MonoBehaviour
                 menuTabs[i].SetActive(true);
             }
         }
+        for (int i = 0; i < menuScreens.Length; i++)
+        {
+            if (i != 4)
+            {
+                menuScreens[i].SetActive(false);
+            }
+            else
+            {
+                menuScreens[i].SetActive(true);
+            }
+        }
         pipBoyAnim.SetBool("stat", true);
         pipBoyAnim.SetBool("inv", false);
         pipBoyAnim.SetBool("data", false);
@@ -213,6 +237,18 @@ public class PipBoy : MonoBehaviour
                 menuTabs[i].SetActive(true);
             }
         }
+
+        for (int i = 0; i < menuScreens.Length; i++)
+        {
+            if (i != 3)
+            {
+                menuScreens[i].SetActive(false);
+            }
+            else
+            {
+                menuScreens[i].SetActive(true);
+            }
+        }
         pipBoyAnim.SetBool("stat", false);
         pipBoyAnim.SetBool("inv", true);
         pipBoyAnim.SetBool("data", false);
@@ -238,6 +274,17 @@ public class PipBoy : MonoBehaviour
             else
             {
                 menuTabs[i].SetActive(true);
+            }
+        }
+        for (int i = 0; i < menuScreens.Length; i++)
+        {
+            if (i != 2)
+            {
+                menuScreens[i].SetActive(false);
+            }
+            else
+            {
+                menuScreens[i].SetActive(true);
             }
         }
 
@@ -268,6 +315,17 @@ public class PipBoy : MonoBehaviour
                 menuTabs[i].SetActive(true);
             }
         }
+        for (int i = 0; i < menuScreens.Length; i++)
+        {
+            if (i !=1)
+            {
+                menuScreens[i].SetActive(false);
+            }
+            else
+            {
+                menuScreens[i].SetActive(true);
+            }
+        }
         pipBoyAnim.SetBool("stat", false);
         pipBoyAnim.SetBool("inv", false);
         pipBoyAnim.SetBool("data", false);
@@ -293,6 +351,17 @@ public class PipBoy : MonoBehaviour
             else
             {
                 menuTabs[i].SetActive(true);
+            }
+        }
+        for (int i = 0; i < menuScreens.Length; i++)
+        {
+            if (i != 0)
+            {
+                menuScreens[i].SetActive(false);
+            }
+            else
+            {
+                menuScreens[i].SetActive(true);
             }
         }
 
