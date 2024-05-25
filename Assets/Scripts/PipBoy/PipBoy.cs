@@ -9,8 +9,8 @@ public class PipBoy : MonoBehaviour
     private Animator pipBoyAnim;
     private Animator handAnim;
     private Animator radioMoletteAnim;
-    private GameObject[] menuTabs;
-    private GameObject[] menuScreens;
+    [SerializeField] private GameObject[] menuTabs;
+    [SerializeField] private GameObject[] menuScreens;
 
     private int menuIndex;
     private int radioIndex;
@@ -37,8 +37,6 @@ public class PipBoy : MonoBehaviour
         pipBoyAnim = GameObject.Find("FrameDialMenu").GetComponent<Animator>();
         handAnim = GameObject.Find("R_wrist").GetComponent<Animator>();
         radioMoletteAnim = GameObject.Find("FrameDialTune").GetComponent<Animator>();
-        menuTabs = GameObject.FindGameObjectsWithTag("tabs");
-        menuScreens = GameObject.FindGameObjectsWithTag("screens");
 
         ResetToNeutral();
 
@@ -400,5 +398,4 @@ public class PipBoy : MonoBehaviour
         handAnim.SetBool("map", false);
         handAnim.SetBool("radio", true);
     }
-
 }
