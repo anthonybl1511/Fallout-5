@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 public class PipBoy : MonoBehaviour
 {
@@ -63,43 +65,64 @@ public class PipBoy : MonoBehaviour
 
     }
 
+    private void UpdateTab()
+    {
+        pipBoyAnim.SetTrigger("changeTab");
+        handAnim.SetTrigger("changeTab");
+
+        UISounds.clip = driveAndStaticsSounds[Random.Range(0, driveAndStaticsSounds.Length)];
+        UISounds.Play();
+
+
+        navigationSounds.clip = tabRightSound;
+        navigationSounds.Play();
+
+        switch (menuIndex)
+        {
+            case 0:
+                GoToStats();
+                break;
+            case 1:
+                GoToInv();
+                break;
+            case 2:
+                GoToData();
+                break;
+            case 3:
+                GoToMap();
+                break;
+            case 4:
+                GoToRadio();
+                break;
+        }
+    }
+
     public void ChangeIndex(int index)
     {
         if(pipboyActive)
         {
             menuIndex += index;
-            menuIndex = Mathf.Clamp(menuIndex, 0, 4);
-
-            pipBoyAnim.SetTrigger("changeTab");
-            handAnim.SetTrigger("changeTab");
-
-                    UISounds.clip = driveAndStaticsSounds[Random.Range(0, driveAndStaticsSounds.Length)];
-                    UISounds.Play();
-
-
-                    navigationSounds.clip = tabRightSound;
-                    navigationSounds.Play();
-
-            switch (menuIndex)
+            if(menuIndex > 4 || menuIndex < 0)
             {
-                case 0:
-                    GoToStats();
-                    break;
-                case 1:
-                    GoToInv();
-                    break;
-                case 2:
-                    GoToData();
-                    break;
-                case 3:
-                    GoToMap();
-                    break;
-                case 4:
-                    GoToRadio();
-                    break;
+                menuIndex = Mathf.Clamp(menuIndex, 0, 4);
+            }
+            else
+            {
+                UpdateTab();
             }
         }
-        
+    }
+
+    public void SetIndex(int index)
+    {
+        if (pipboyActive)
+        {
+            if(index != menuIndex)
+            {
+                menuIndex = index;
+                UpdateTab();
+            }
+        }
     }
 
     public void navigate(int index)
@@ -377,4 +400,5 @@ public class PipBoy : MonoBehaviour
         handAnim.SetBool("map", false);
         handAnim.SetBool("radio", true);
     }
+
 }
