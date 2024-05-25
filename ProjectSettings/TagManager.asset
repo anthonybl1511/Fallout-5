@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - tabs
+  - screens
   layers:
   - Default
   - TransparentFX
@@ -12,7 +13,7 @@ TagManager:
   - PipBoy
   - Water
   - UI
-  - 
+  - Floor
   - 
   - 
   - 
