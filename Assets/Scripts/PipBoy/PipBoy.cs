@@ -1,7 +1,11 @@
 using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using System.Collections;
 using Random = UnityEngine.Random;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.Rendering.HighDefinition;
+
 
 public class PipBoy : MonoBehaviour
 {
@@ -11,11 +15,15 @@ public class PipBoy : MonoBehaviour
     private Animator radioMoletteAnim;
     [SerializeField] private GameObject[] menuTabs;
     [SerializeField] private GameObject[] menuScreens;
+    
+
+    private SubTabsManager activeSubTab;
 
     private int menuIndex;
     private int radioIndex;
     private bool radioActive;
     private bool pipboyActive;
+
 
     [SerializeField] private AudioSource UISounds;
     [SerializeField] private AudioSource navigationSounds;
@@ -28,15 +36,22 @@ public class PipBoy : MonoBehaviour
 
     [SerializeField] private InputManager inputManager;
 
+    private GameObject pipboyScreenRef;
+    private LensDistortion lensDistortion;
 
     private void Start()
     {
         instance = this;
 
-
+        pipboyScreenRef = GameObject.Find("ScreenCamera");
         pipBoyAnim = GameObject.Find("FrameDialMenu").GetComponent<Animator>();
         handAnim = GameObject.Find("R_wrist").GetComponent<Animator>();
         radioMoletteAnim = GameObject.Find("FrameDialTune").GetComponent<Animator>();
+
+        if(pipboyScreenRef.GetComponent<Volume>().profile.TryGet<LensDistortion>(out LensDistortion ld))
+        {
+            lensDistortion = ld;
+        }
 
         ResetToNeutral();
 
@@ -45,6 +60,17 @@ public class PipBoy : MonoBehaviour
             if (i != menuTabs.Length - 1)
             {
                 menuTabs[i].SetActive(false);
+            }
+            else
+            {
+                if (menuScreens[i].transform.GetChild(0).gameObject.name == "horizontalSubTabs")
+                {
+                    activeSubTab = menuScreens[i].transform.GetChild(0).gameObject.GetComponent<SubTabsManager>();
+                }
+                else
+                {
+                    activeSubTab = null;
+                }
             }
         }
 
@@ -57,20 +83,50 @@ public class PipBoy : MonoBehaviour
         }
 
     }
+    IEnumerator FlickerScreen()
+    {
+        float flickerTime = 0;
+        int frameCounter = 0;
+
+        while (flickerTime < 0.15f)
+        {
+            flickerTime += Time.deltaTime;
+            frameCounter++;
+
+            if (frameCounter >= 3)
+            {
+                frameCounter = 0;
+                float randomF = Random.Range(-1f, 1f);
+                ClampedFloatParameter intensityParameter = new ClampedFloatParameter(randomF, -0.5f, 0.5f);
+                lensDistortion.intensity.SetValue(intensityParameter);
+                pipboyScreenRef.transform.GetChild(0).GetChild(0).transform.localPosition = new Vector3(0, randomF * 100, 0);
+            }
+            yield return null;
+        }
+        ClampedFloatParameter finalIntensity = new ClampedFloatParameter(0, -1, 1);
+        lensDistortion.intensity.SetValue(finalIntensity);
+        pipboyScreenRef.transform.GetChild(0).GetChild(0).transform.localPosition = Vector3.zero;
+    }
 
     public void Click()
     {
-
     }
 
     private void UpdateTab()
     {
+
+        int playAnim = Random.Range(0, 2);
+
+        if(playAnim == 0)
+        {
+            StartCoroutine(FlickerScreen());
+        }
+
         pipBoyAnim.SetTrigger("changeTab");
         handAnim.SetTrigger("changeTab");
 
         UISounds.clip = driveAndStaticsSounds[Random.Range(0, driveAndStaticsSounds.Length)];
         UISounds.Play();
-
 
         navigationSounds.clip = tabRightSound;
         navigationSounds.Play();
@@ -93,11 +149,28 @@ public class PipBoy : MonoBehaviour
                 GoToRadio();
                 break;
         }
+        if (menuScreens[(menuScreens.Length - 1) - menuIndex].transform.GetChild(0).gameObject.GetComponent<SubTabsManager>() != null)
+        {
+            activeSubTab = menuScreens[(menuScreens.Length - 1) - menuIndex].transform.GetChild(0).gameObject.GetComponent<SubTabsManager>();
+            
+        }
+        else
+        {
+            activeSubTab = null;
+        }
+    }
+
+    public void ChangeSubTabs(int index)
+    {
+        if (activeSubTab != null)
+        {
+            activeSubTab.switchIndex(index);
+        }
     }
 
     public void ChangeIndex(int index)
     {
-        if(pipboyActive)
+        if (pipboyActive)
         {
             menuIndex += index;
             if(menuIndex > 4 || menuIndex < 0)
@@ -110,6 +183,7 @@ public class PipBoy : MonoBehaviour
             }
         }
     }
+
 
     public void SetIndex(int index)
     {

@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
@@ -17,17 +14,20 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
-
-        if (inputMaster.PipBoyInput.SwitchTabs.triggered)
+        if (inputMaster.PipBoyInput.SwitchMenu.triggered)
         {
-            PipBoy.instance.ChangeIndex((int)inputMaster.PipBoyInput.SwitchTabs.ReadValue<float>());
+            PipBoy.instance.ChangeIndex((int)inputMaster.PipBoyInput.SwitchMenu.ReadValue<float>());
+        }
+
+        if (inputMaster.PipBoyInput.SwitchSubTabs.triggered)
+        {
+            PipBoy.instance.ChangeSubTabs((int)inputMaster.PipBoyInput.SwitchSubTabs.ReadValue<float>());
         }
 
         if (inputMaster.PipBoyInput.Navigate.triggered)
         {
             PipBoy.instance.navigate((int)inputMaster.PipBoyInput.Navigate.ReadValue<float>());
         }
-
 
         if (PipBoy.instance.getActive())
         {
@@ -39,9 +39,7 @@ public class InputManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
-
     }
-
 
     private void OnEnable()
     {
