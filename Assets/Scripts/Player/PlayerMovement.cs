@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (isGrounded)
+        if (isGrounded && !PipBoy.instance.getActive())
         {
             rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
         }

@@ -30,6 +30,19 @@ public class SubTabsManager : MonoBehaviour
         }
 
         initialPos.x -= subTabsText[index].GetComponent<RectTransform>().rect.width / 30;
+
+        for(int i = 0; i < subTabsContent.Length; i++)
+        {
+            if(i == index)
+            {
+                subTabsContent[i].SetActive(true);
+            }
+            else
+            {
+                subTabsContent[i].SetActive(false);
+            }
+           
+        }
     }
 
     private void Update()

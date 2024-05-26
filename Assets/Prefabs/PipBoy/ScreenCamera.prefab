@@ -2145,9 +2145,9 @@ MonoBehaviour:
   - {fileID: 1974613184889694281}
   - {fileID: 971395589134419108}
   subTabsContent:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6512252620409285109}
+  - {fileID: 8452408176487392857}
+  - {fileID: 3905819650296310570}
   posOffset: 3
 --- !u!1 &1974613184889694281
 GameObject:
