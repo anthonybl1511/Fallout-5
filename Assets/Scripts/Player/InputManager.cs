@@ -24,11 +24,6 @@ public class InputManager : MonoBehaviour
             PipBoy.instance.ChangeSubTabs((int)inputMaster.PipBoyInput.SwitchSubTabs.ReadValue<float>());
         }
 
-        if (inputMaster.PipBoyInput.Navigate.triggered)
-        {
-            PipBoy.instance.navigate((int)inputMaster.PipBoyInput.Navigate.ReadValue<float>());
-        }
-
         if (PipBoy.instance.getActive())
         {
             Cursor.lockState = CursorLockMode.None;

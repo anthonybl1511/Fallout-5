@@ -227,43 +227,6 @@ public class PipBoy : MonoBehaviour
         }
     }
 
-    public void navigate(int index)
-    {
-        if (pipboyActive) { 
-            if(radioActive)
-            {
-                if (index > 0)
-                {
-                    if (radioIndex < 1)
-                    {
-                        radioIndex++;
-                        radioMoletteAnim.SetBool("right", true);
-                        radioMoletteAnim.SetBool("left", false);
-
-                        handAnim.SetBool("rightRadio", false);
-                        handAnim.SetBool("leftRadio", true);
-                    }
-                }
-                if (index < 0)
-                {
-                    if (radioIndex > 0)
-                    {
-                        radioIndex--;
-                        radioMoletteAnim.SetBool("right", false);
-                        radioMoletteAnim.SetBool("left", true);
-
-                        handAnim.SetBool("rightRadio", true);
-                        handAnim.SetBool("leftRadio", false);
-                    }
-                }
-            }
-            else
-            {
-                 
-            }
-        }
-    }
-
     public void OpenClose()
     {
         if (pipboyActive)

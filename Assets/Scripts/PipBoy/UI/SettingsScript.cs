@@ -1,13 +1,16 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 using static System.Net.Mime.MediaTypeNames;
 
 public class SettingsScript : MonoBehaviour
 {
+    [SerializeField] private AudioMixer audioMixer;
+
     [SerializeField] private TMP_Dropdown dropDown;
-    [SerializeField] private Slider SFX;
-    [SerializeField] private Slider Music;
+    [SerializeField] private Slider sfxSlider;
+    [SerializeField] private Slider musicSlider;
 
     private bool fullScreen;
 
@@ -74,10 +77,12 @@ public class SettingsScript : MonoBehaviour
 
     public void ChangeMusic()
     {
-        print(Music.value);
+        float volume = musicSlider.value;
+        audioMixer.SetFloat("musicVol", Mathf.Log10(volume) * 20);
     }
     public void ChangeSFX()
     {
-        print(SFX.value);
+        float volume = sfxSlider.value;
+        audioMixer.SetFloat("sfxVol", Mathf.Log10(volume) * 20);
     }
 }
