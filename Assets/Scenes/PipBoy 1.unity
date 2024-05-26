@@ -1604,6 +1604,22 @@ PrefabInstance:
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
+    - target: {fileID: 1735471445829763771, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767047630910799210, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767047630910799210, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767047630910799210, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1963925766799772621, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
       propertyPath: uiSounds
       value: 
@@ -1644,6 +1660,14 @@ PrefabInstance:
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
+    - target: {fileID: 3720338802598361754, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3720338802598361754, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3866862510363331781, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
       propertyPath: uiSounds
       value: 
@@ -1676,6 +1700,10 @@ PrefabInstance:
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
+    - target: {fileID: 5175586326179752415, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5575351919965269485, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
       propertyPath: uiSounds
       value: 
@@ -1796,6 +1824,10 @@ PrefabInstance:
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
+    - target: {fileID: 7938352642558895328, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8021986346560501757, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
       propertyPath: uiSounds
       value: 
@@ -1812,6 +1844,10 @@ PrefabInstance:
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
+    - target: {fileID: 8936138438727246076, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
