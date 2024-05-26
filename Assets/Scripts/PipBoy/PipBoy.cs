@@ -4,7 +4,9 @@ using System.Collections;
 using Random = UnityEngine.Random;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.Rendering.HighDefinition;
+using UnityEngine.UI;
+using System.Collections.Generic;
+using UnityEngine.EventSystems;
 
 
 public class PipBoy : MonoBehaviour
@@ -48,7 +50,7 @@ public class PipBoy : MonoBehaviour
         handAnim = GameObject.Find("R_wrist").GetComponent<Animator>();
         radioMoletteAnim = GameObject.Find("FrameDialTune").GetComponent<Animator>();
 
-        if(pipboyScreenRef.GetComponent<Volume>().profile.TryGet<LensDistortion>(out LensDistortion ld))
+        if (pipboyScreenRef.GetComponent<Volume>().profile.TryGet<LensDistortion>(out LensDistortion ld))
         {
             lensDistortion = ld;
         }
@@ -110,6 +112,46 @@ public class PipBoy : MonoBehaviour
 
     public void Click()
     {
+        //Rect deadZone = new Rect(0, 0, Screen.width / 2, Screen.height / 2);
+        //float scaleFactor = 5;
+        //// Get the mouse position in screen space
+        //Vector2 mousePosition = Input.mousePosition;
+
+        //// Calculate the scale factor
+        //float scaleFactorX = 512 / Screen.width;
+        //float scaleFactorY = 512 / Screen.height;
+        // scaleFactor = Mathf.Min(scaleFactorX, scaleFactorY);
+
+        //// Divide the mouse position by the scale factor and center it
+        //mousePosition = (mousePosition - new Vector2(Screen.width / 2, Screen.height / 2)) * scaleFactor + new Vector2(512 / 2, 512 / 2);
+
+        //// Check if the mouse position is inside the pipboy screen and outside the dead zone
+        //if (pipboyScreenRef.transform.GetChild(0).GetComponent<RectTransform>().rect.Contains(mousePosition) && !deadZone.Contains(mousePosition))
+        //{
+        //    // Create a temporary PointerEventData object
+        //    PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
+        //    pointerEventData.position = mousePosition;
+
+        //    // Get all UI elements under the mouse cursor
+        //    List<RaycastResult> results = new List<RaycastResult>();
+        //    EventSystem.current.RaycastAll(pointerEventData, results);
+
+        //    // Check if any UI element is on the pipboy screen camera
+        //    foreach (RaycastResult result in results)
+        //    {
+        //        if (result.gameObject.GetComponent<Canvas>() != null &&
+        //            result.gameObject.GetComponent<Canvas>().worldCamera == pipboyScreenRef.GetComponent<Camera>())
+        //        {
+        //            // Invoke the button's onClick method
+        //            if (result.gameObject.GetComponent<Button>() != null)
+        //            {
+        //                result.gameObject.GetComponent<Button>().onClick.Invoke();
+        //            }
+        //        }
+        //        print(result.worldPosition);
+        //    }
+        //}
+
     }
 
     private void UpdateTab()
