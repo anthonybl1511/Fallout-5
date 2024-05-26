@@ -1,12 +1,13 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
-using static System.Net.Mime.MediaTypeNames;
 
 public class SettingsScript : MonoBehaviour
 {
     [SerializeField] private AudioMixer audioMixer;
+    [SerializeField] private Volume volume;
 
     [SerializeField] private TMP_Dropdown dropDown;
     [SerializeField] private Slider sfxSlider;
@@ -72,6 +73,20 @@ public class SettingsScript : MonoBehaviour
         {
 
             QualitySettings.vSyncCount = 0;
+        }
+    }
+
+    public void SetHighContrast()
+    {
+        if (volume.enabled)
+        {
+
+            volume.enabled = false;
+        }
+        else
+        {
+
+            volume.enabled = true;
         }
     }
 

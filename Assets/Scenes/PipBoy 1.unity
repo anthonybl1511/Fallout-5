@@ -1594,11 +1594,31 @@ PrefabInstance:
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
+    - target: {fileID: 1767047630910799210, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767047630910799210, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767047630910799210, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1963925766799772621, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
       propertyPath: uiSounds
       value: 
       objectReference: {fileID: 1540454576}
     - target: {fileID: 1963925766799772621, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: uiSounds2
+      value: 
+      objectReference: {fileID: 1540454575}
+    - target: {fileID: 2029474179786834023, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: uiSounds
+      value: 
+      objectReference: {fileID: 1540454576}
+    - target: {fileID: 2029474179786834023, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
@@ -1626,6 +1646,18 @@ PrefabInstance:
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
+    - target: {fileID: 3720338802598361754, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3720338802598361754, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3720338802598361754, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3866862510363331781, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
       propertyPath: uiSounds
       value: 
@@ -1642,6 +1674,18 @@ PrefabInstance:
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
+    - target: {fileID: 4537885655731062196, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4965516177051278060, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: uiSounds
+      value: 
+      objectReference: {fileID: 1540454576}
+    - target: {fileID: 4965516177051278060, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: uiSounds2
+      value: 
+      objectReference: {fileID: 1540454575}
     - target: {fileID: 5088299290082249735, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
       propertyPath: uiSounds
       value: 
@@ -1655,6 +1699,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1540454576}
     - target: {fileID: 5575351919965269485, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: uiSounds2
+      value: 
+      objectReference: {fileID: 1540454575}
+    - target: {fileID: 5926359164350103330, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: uiSounds
+      value: 
+      objectReference: {fileID: 1540454576}
+    - target: {fileID: 5926359164350103330, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
@@ -1702,6 +1754,10 @@ PrefabInstance:
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
+    - target: {fileID: 7607944744857930958, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7620526836844117883, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 86.23

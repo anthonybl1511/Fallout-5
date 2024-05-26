@@ -4,7 +4,6 @@ using Random = UnityEngine.Random;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.InputSystem;
-using System;
 
 
 public class PipBoy : MonoBehaviour
@@ -15,12 +14,12 @@ public class PipBoy : MonoBehaviour
     private Animator radioMoletteAnim;
     [SerializeField] private GameObject[] menuTabs;
     [SerializeField] private GameObject[] menuScreens;
+    [SerializeField] private GameObject[] triggerTexts;
     
 
     private SubTabsManager activeSubTab;
 
     private int menuIndex;
-    private int radioIndex;
     private bool radioActive;
     private bool pipboyActive;
 
@@ -129,72 +128,81 @@ public class PipBoy : MonoBehaviour
 
     private void UpdateTab()
     {
-
-        int playAnim = Random.Range(0, driveAndStaticsSounds.Length);
-
-        if(playAnim >= 5 && playAnim <= 9)
+        if(pipboyActive)
         {
-            StartCoroutine(FlickerScreen());
-        }
+            int playAnim = Random.Range(0, driveAndStaticsSounds.Length);
 
-        pipBoyAnim.SetTrigger("changeTab");
-        handAnim.SetTrigger("changeTab");
+            if (playAnim >= 5 && playAnim <= 9)
+            {
+                StartCoroutine(FlickerScreen());
+            }
 
-        UISounds.clip = driveAndStaticsSounds[playAnim];
-        UISounds.Play();
+            pipBoyAnim.SetTrigger("changeTab");
+            handAnim.SetTrigger("changeTab");
 
-        navigationSounds.clip = tabRightSound;
-        navigationSounds.Play();
+            UISounds.clip = driveAndStaticsSounds[playAnim];
+            UISounds.Play();
 
-        switch (menuIndex)
-        {
-            case 0:
-                GoToStats();
-                break;
-            case 1:
-                GoToInv();
-                break;
-            case 2:
-                GoToData();
-                break;
-            case 3:
-                GoToMap();
-                break;
-            case 4:
-                GoToRadio();
-                break;
+            navigationSounds.clip = tabRightSound;
+            navigationSounds.Play();
+
+            switch (menuIndex)
+            {
+                case 0:
+                    GoToStats();
+                    break;
+                case 1:
+                    GoToInv();
+                    break;
+                case 2:
+                    GoToData();
+                    break;
+                case 3:
+                    GoToMap();
+                    break;
+                case 4:
+                    GoToRadio();
+                    break;
+            }
+            if (menuScreens[(menuScreens.Length - 1) - menuIndex].transform.GetChild(0).gameObject.GetComponent<SubTabsManager>() != null)
+            {
+                activeSubTab = menuScreens[(menuScreens.Length - 1) - menuIndex].transform.GetChild(0).gameObject.GetComponent<SubTabsManager>();
+
+            }
+            else
+            {
+                activeSubTab = null;
+            }
         }
-        if (menuScreens[(menuScreens.Length - 1) - menuIndex].transform.GetChild(0).gameObject.GetComponent<SubTabsManager>() != null)
-        {
-            activeSubTab = menuScreens[(menuScreens.Length - 1) - menuIndex].transform.GetChild(0).gameObject.GetComponent<SubTabsManager>();
-            
-        }
-        else
-        {
-            activeSubTab = null;
-        }
+       
     }
 
     public void ChangeSubTabs(int index)
     {
-        if (activeSubTab != null)
+        if(pipboyActive)
         {
-            activeSubTab.switchIndex(index);
+            if (activeSubTab != null)
+            {
+                activeSubTab.switchIndex(index);
+            }
         }
     }
 
     public void SubTabSound(int index)
     {
-        handAnim.SetTrigger("changeSubTab");
-        if (index < 0)
+        if(pipboyActive)
         {
-            UISounds.clip = subTabRightSound;
-            UISounds.Play();
-        }
-        else if (index > 0)
-        {
-            UISounds.clip = subTabLeftSound;
-            UISounds.Play();
+            handAnim.SetTrigger("changeSubTab");
+            if (index < 0)
+            {
+                UISounds.clip = subTabRightSound;
+                UISounds.Play();
+            }
+            else if (index > 0)
+            {
+                UISounds.clip = subTabLeftSound;
+                UISounds.Play();
+            }
         }
     }
 
