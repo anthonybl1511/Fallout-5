@@ -1478,6 +1478,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce61041ff2edbd47a2e8f42087326ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiSounds: {fileID: 0}
+  uiSounds2: {fileID: 0}
+  hoverSound: {fileID: 8300000, guid: 4b5556a329c4a3b4ba414a9364dc9882, type: 3}
+  selectSound: {fileID: 8300000, guid: 3d5b5e979d7be754b84475bc2b0006bf, type: 3}
+  unSelectSound: {fileID: 8300000, guid: 451da754b96d57e47bd23b13ab1d3f77, type: 3}
 --- !u!114 &8852124548732460495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1759,6 +1764,7 @@ GameObject:
   - component: {fileID: 5884443087934870324}
   - component: {fileID: 6938833769633218565}
   - component: {fileID: 6206693937826019139}
+  - component: {fileID: 305748613930236114}
   m_Layer: 5
   m_Name: Tab3
   m_TagString: Untagged
@@ -1882,6 +1888,62 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &305748613930236114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971395589134419108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 2682135806663286682}
+    m_SelectOnDown: {fileID: 4343625581126735935}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 7762000484005390916}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2216864128726124301}
+        m_TargetAssemblyTypeName: SubTabsManager, Assembly-CSharp
+        m_MethodName: SetIndex
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1112736830229738589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1893,6 +1955,7 @@ GameObject:
   - component: {fileID: 7423374952091463026}
   - component: {fileID: 3162661292943440397}
   - component: {fileID: 3463216733026082827}
+  - component: {fileID: 2530794206212748455}
   m_Layer: 5
   m_Name: Tab1
   m_TagString: Untagged
@@ -2016,6 +2079,62 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2530794206212748455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112736830229738589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 2682135806663286682}
+    m_SelectOnDown: {fileID: 4343625581126735935}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 7762000484005390916}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2216864128726124301}
+        m_TargetAssemblyTypeName: SubTabsManager, Assembly-CSharp
+        m_MethodName: SetIndex
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1130210818102079649
 GameObject:
   m_ObjectHideFlags: 0
@@ -2687,6 +2806,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce61041ff2edbd47a2e8f42087326ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiSounds: {fileID: 0}
+  uiSounds2: {fileID: 0}
+  hoverSound: {fileID: 8300000, guid: 4b5556a329c4a3b4ba414a9364dc9882, type: 3}
+  selectSound: {fileID: 8300000, guid: 3d5b5e979d7be754b84475bc2b0006bf, type: 3}
+  unSelectSound: {fileID: 8300000, guid: 451da754b96d57e47bd23b13ab1d3f77, type: 3}
 --- !u!114 &6672406517290140012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2948,6 +3072,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce61041ff2edbd47a2e8f42087326ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiSounds: {fileID: 0}
+  uiSounds2: {fileID: 0}
+  hoverSound: {fileID: 8300000, guid: 4b5556a329c4a3b4ba414a9364dc9882, type: 3}
+  selectSound: {fileID: 8300000, guid: 3d5b5e979d7be754b84475bc2b0006bf, type: 3}
+  unSelectSound: {fileID: 8300000, guid: 451da754b96d57e47bd23b13ab1d3f77, type: 3}
 --- !u!114 &2976834317764043693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3140,6 +3269,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce61041ff2edbd47a2e8f42087326ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiSounds: {fileID: 0}
+  uiSounds2: {fileID: 0}
+  hoverSound: {fileID: 8300000, guid: 4b5556a329c4a3b4ba414a9364dc9882, type: 3}
+  selectSound: {fileID: 8300000, guid: 3d5b5e979d7be754b84475bc2b0006bf, type: 3}
+  unSelectSound: {fileID: 8300000, guid: 451da754b96d57e47bd23b13ab1d3f77, type: 3}
 --- !u!114 &8866918032139841235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3196,6 +3330,7 @@ GameObject:
   - component: {fileID: 30484173485654031}
   - component: {fileID: 1857239679214304180}
   - component: {fileID: 879299833275886907}
+  - component: {fileID: 614340849308016866}
   m_Layer: 5
   m_Name: Tab2
   m_TagString: Untagged
@@ -3319,6 +3454,62 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &614340849308016866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974613184889694281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 2682135806663286682}
+    m_SelectOnDown: {fileID: 4343625581126735935}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 7762000484005390916}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2216864128726124301}
+        m_TargetAssemblyTypeName: SubTabsManager, Assembly-CSharp
+        m_MethodName: SetIndex
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2136398994751559081
 GameObject:
   m_ObjectHideFlags: 0
@@ -7615,6 +7806,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce61041ff2edbd47a2e8f42087326ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiSounds: {fileID: 0}
+  uiSounds2: {fileID: 0}
+  hoverSound: {fileID: 8300000, guid: 4b5556a329c4a3b4ba414a9364dc9882, type: 3}
+  selectSound: {fileID: 8300000, guid: 3d5b5e979d7be754b84475bc2b0006bf, type: 3}
+  unSelectSound: {fileID: 8300000, guid: 451da754b96d57e47bd23b13ab1d3f77, type: 3}
 --- !u!114 &6832933036125836705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8886,6 +9082,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce61041ff2edbd47a2e8f42087326ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiSounds: {fileID: 0}
+  uiSounds2: {fileID: 0}
+  hoverSound: {fileID: 8300000, guid: 4b5556a329c4a3b4ba414a9364dc9882, type: 3}
+  selectSound: {fileID: 8300000, guid: 3d5b5e979d7be754b84475bc2b0006bf, type: 3}
+  unSelectSound: {fileID: 8300000, guid: 451da754b96d57e47bd23b13ab1d3f77, type: 3}
 --- !u!114 &255958972930035401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9199,6 +9400,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce61041ff2edbd47a2e8f42087326ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiSounds: {fileID: 0}
+  uiSounds2: {fileID: 0}
+  hoverSound: {fileID: 8300000, guid: 4b5556a329c4a3b4ba414a9364dc9882, type: 3}
+  selectSound: {fileID: 8300000, guid: 3d5b5e979d7be754b84475bc2b0006bf, type: 3}
+  unSelectSound: {fileID: 8300000, guid: 451da754b96d57e47bd23b13ab1d3f77, type: 3}
 --- !u!114 &250677501701022630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9391,6 +9597,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce61041ff2edbd47a2e8f42087326ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiSounds: {fileID: 0}
+  uiSounds2: {fileID: 0}
+  hoverSound: {fileID: 8300000, guid: 4b5556a329c4a3b4ba414a9364dc9882, type: 3}
+  selectSound: {fileID: 8300000, guid: 3d5b5e979d7be754b84475bc2b0006bf, type: 3}
+  unSelectSound: {fileID: 8300000, guid: 451da754b96d57e47bd23b13ab1d3f77, type: 3}
 --- !u!114 &4396718657654307252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11003,6 +11214,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce61041ff2edbd47a2e8f42087326ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiSounds: {fileID: 0}
+  uiSounds2: {fileID: 0}
+  hoverSound: {fileID: 8300000, guid: 4b5556a329c4a3b4ba414a9364dc9882, type: 3}
+  selectSound: {fileID: 8300000, guid: 3d5b5e979d7be754b84475bc2b0006bf, type: 3}
+  unSelectSound: {fileID: 8300000, guid: 451da754b96d57e47bd23b13ab1d3f77, type: 3}
 --- !u!114 &4698614603641058257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11502,6 +11718,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce61041ff2edbd47a2e8f42087326ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiSounds: {fileID: 0}
+  uiSounds2: {fileID: 0}
+  hoverSound: {fileID: 8300000, guid: 4b5556a329c4a3b4ba414a9364dc9882, type: 3}
+  selectSound: {fileID: 8300000, guid: 3d5b5e979d7be754b84475bc2b0006bf, type: 3}
+  unSelectSound: {fileID: 8300000, guid: 451da754b96d57e47bd23b13ab1d3f77, type: 3}
 --- !u!114 &4442808604399215243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11770,6 +11991,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce61041ff2edbd47a2e8f42087326ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiSounds: {fileID: 0}
+  uiSounds2: {fileID: 0}
+  hoverSound: {fileID: 8300000, guid: 4b5556a329c4a3b4ba414a9364dc9882, type: 3}
+  selectSound: {fileID: 8300000, guid: 3d5b5e979d7be754b84475bc2b0006bf, type: 3}
+  unSelectSound: {fileID: 8300000, guid: 451da754b96d57e47bd23b13ab1d3f77, type: 3}
 --- !u!114 &6010848405594341694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12668,6 +12894,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce61041ff2edbd47a2e8f42087326ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiSounds: {fileID: 0}
+  uiSounds2: {fileID: 0}
+  hoverSound: {fileID: 8300000, guid: 4b5556a329c4a3b4ba414a9364dc9882, type: 3}
+  selectSound: {fileID: 8300000, guid: 3d5b5e979d7be754b84475bc2b0006bf, type: 3}
+  unSelectSound: {fileID: 8300000, guid: 451da754b96d57e47bd23b13ab1d3f77, type: 3}
 --- !u!114 &7277035920662894587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13144,6 +13375,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce61041ff2edbd47a2e8f42087326ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiSounds: {fileID: 0}
+  uiSounds2: {fileID: 0}
+  hoverSound: {fileID: 8300000, guid: 4b5556a329c4a3b4ba414a9364dc9882, type: 3}
+  selectSound: {fileID: 8300000, guid: 3d5b5e979d7be754b84475bc2b0006bf, type: 3}
+  unSelectSound: {fileID: 8300000, guid: 451da754b96d57e47bd23b13ab1d3f77, type: 3}
 --- !u!114 &7135597963501332811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13460,6 +13696,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce61041ff2edbd47a2e8f42087326ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiSounds: {fileID: 0}
+  uiSounds2: {fileID: 0}
+  hoverSound: {fileID: 8300000, guid: 4b5556a329c4a3b4ba414a9364dc9882, type: 3}
+  selectSound: {fileID: 8300000, guid: 3d5b5e979d7be754b84475bc2b0006bf, type: 3}
+  unSelectSound: {fileID: 8300000, guid: 451da754b96d57e47bd23b13ab1d3f77, type: 3}
 --- !u!114 &8566096644342828800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14486,6 +14727,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce61041ff2edbd47a2e8f42087326ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiSounds: {fileID: 0}
+  uiSounds2: {fileID: 0}
+  hoverSound: {fileID: 8300000, guid: 4b5556a329c4a3b4ba414a9364dc9882, type: 3}
+  selectSound: {fileID: 8300000, guid: 3d5b5e979d7be754b84475bc2b0006bf, type: 3}
+  unSelectSound: {fileID: 8300000, guid: 451da754b96d57e47bd23b13ab1d3f77, type: 3}
 --- !u!114 &6789201461055048255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14678,6 +14924,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce61041ff2edbd47a2e8f42087326ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiSounds: {fileID: 0}
+  uiSounds2: {fileID: 0}
+  hoverSound: {fileID: 8300000, guid: 4b5556a329c4a3b4ba414a9364dc9882, type: 3}
+  selectSound: {fileID: 8300000, guid: 3d5b5e979d7be754b84475bc2b0006bf, type: 3}
+  unSelectSound: {fileID: 8300000, guid: 451da754b96d57e47bd23b13ab1d3f77, type: 3}
 --- !u!114 &2226646797007071391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15216,6 +15467,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce61041ff2edbd47a2e8f42087326ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiSounds: {fileID: 0}
+  uiSounds2: {fileID: 0}
+  hoverSound: {fileID: 8300000, guid: 4b5556a329c4a3b4ba414a9364dc9882, type: 3}
+  selectSound: {fileID: 8300000, guid: 3d5b5e979d7be754b84475bc2b0006bf, type: 3}
+  unSelectSound: {fileID: 8300000, guid: 451da754b96d57e47bd23b13ab1d3f77, type: 3}
 --- !u!114 &5305065701149793309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15812,6 +16068,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce61041ff2edbd47a2e8f42087326ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiSounds: {fileID: 0}
+  uiSounds2: {fileID: 0}
+  hoverSound: {fileID: 8300000, guid: 4b5556a329c4a3b4ba414a9364dc9882, type: 3}
+  selectSound: {fileID: 8300000, guid: 3d5b5e979d7be754b84475bc2b0006bf, type: 3}
+  unSelectSound: {fileID: 8300000, guid: 451da754b96d57e47bd23b13ab1d3f77, type: 3}
 --- !u!114 &2838020253492645053
 MonoBehaviour:
   m_ObjectHideFlags: 0
