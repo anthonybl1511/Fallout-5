@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
@@ -26,8 +27,17 @@ public class InputManager : MonoBehaviour
 
         if (PipBoy.instance.getActive())
         {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            if(Gamepad.current == null)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+
         }
         else
         {

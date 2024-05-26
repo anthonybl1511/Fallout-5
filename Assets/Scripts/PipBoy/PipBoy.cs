@@ -4,6 +4,7 @@ using Random = UnityEngine.Random;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.InputSystem;
+using TMPro;
 
 
 public class PipBoy : MonoBehaviour
@@ -57,6 +58,17 @@ public class PipBoy : MonoBehaviour
             lensDistortion = ld;
         }
 
+        if (Gamepad.current != null)
+        {
+            triggerTexts[0].GetComponent<TextMeshProUGUI>().text = "RB";
+            triggerTexts[1].GetComponent<TextMeshProUGUI>().text = "LB";
+        }
+        else
+        {
+            triggerTexts[0].GetComponent<TextMeshProUGUI>().text = "A";
+            triggerTexts[1].GetComponent<TextMeshProUGUI>().text = "E";
+        }
+
         ResetToNeutral();
 
         for (int i = 0; i < menuTabs.Length; i++)
@@ -86,14 +98,6 @@ public class PipBoy : MonoBehaviour
             }
         }
 
-    }
-
-    private void Update()
-    {
-        if(Gamepad.current != null)
-        {
-
-        }
     }
     IEnumerator FlickerScreen()
     {
@@ -135,6 +139,17 @@ public class PipBoy : MonoBehaviour
             if (playAnim >= 5 && playAnim <= 9)
             {
                 StartCoroutine(FlickerScreen());
+            }
+
+            if (Gamepad.current != null)
+            {
+                triggerTexts[0].GetComponent<TextMeshProUGUI>().text = "RB";
+                triggerTexts[1].GetComponent<TextMeshProUGUI>().text = "LB";
+            }
+            else
+            {
+                triggerTexts[0].GetComponent<TextMeshProUGUI>().text = "A";
+                triggerTexts[1].GetComponent<TextMeshProUGUI>().text = "E";
             }
 
             pipBoyAnim.SetTrigger("changeTab");
