@@ -7,6 +7,7 @@ using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 
 public class PipBoy : MonoBehaviour
@@ -41,6 +42,8 @@ public class PipBoy : MonoBehaviour
     private GameObject pipboyScreenRef;
     private LensDistortion lensDistortion;
 
+    private Vector3 localPos;
+
     private void Start()
     {
         instance = this;
@@ -49,6 +52,7 @@ public class PipBoy : MonoBehaviour
         pipBoyAnim = GameObject.Find("FrameDialMenu").GetComponent<Animator>();
         handAnim = GameObject.Find("R_wrist").GetComponent<Animator>();
         radioMoletteAnim = GameObject.Find("FrameDialTune").GetComponent<Animator>();
+        localPos = pipboyScreenRef.transform.GetChild(0).GetChild(0).transform.localPosition;
 
         if (pipboyScreenRef.GetComponent<Volume>().profile.TryGet<LensDistortion>(out LensDistortion ld))
         {
@@ -85,6 +89,14 @@ public class PipBoy : MonoBehaviour
         }
 
     }
+
+    private void Update()
+    {
+        if(Gamepad.current != null)
+        {
+
+        }
+    }
     IEnumerator FlickerScreen()
     {
         float flickerTime = 0;
@@ -101,65 +113,27 @@ public class PipBoy : MonoBehaviour
                 float randomF = Random.Range(-1f, 1f);
                 ClampedFloatParameter intensityParameter = new ClampedFloatParameter(randomF, -0.5f, 0.5f);
                 lensDistortion.intensity.SetValue(intensityParameter);
-                pipboyScreenRef.transform.GetChild(0).GetChild(0).transform.localPosition = new Vector3(0, randomF * 100, 0);
+                pipboyScreenRef.transform.GetChild(0).GetChild(0).transform.localPosition = new Vector3(localPos.x, randomF * 100, localPos.y);
             }
             yield return null;
         }
         ClampedFloatParameter finalIntensity = new ClampedFloatParameter(0, -1, 1);
         lensDistortion.intensity.SetValue(finalIntensity);
-        pipboyScreenRef.transform.GetChild(0).GetChild(0).transform.localPosition = Vector3.zero;
+        pipboyScreenRef.transform.GetChild(0).GetChild(0).transform.localPosition = localPos;
     }
 
     public void Click()
     {
-        //Rect deadZone = new Rect(0, 0, Screen.width / 2, Screen.height / 2);
-        //float scaleFactor = 5;
-        //// Get the mouse position in screen space
-        //Vector2 mousePosition = Input.mousePosition;
-
-        //// Calculate the scale factor
-        //float scaleFactorX = 512 / Screen.width;
-        //float scaleFactorY = 512 / Screen.height;
-        // scaleFactor = Mathf.Min(scaleFactorX, scaleFactorY);
-
-        //// Divide the mouse position by the scale factor and center it
-        //mousePosition = (mousePosition - new Vector2(Screen.width / 2, Screen.height / 2)) * scaleFactor + new Vector2(512 / 2, 512 / 2);
-
-        //// Check if the mouse position is inside the pipboy screen and outside the dead zone
-        //if (pipboyScreenRef.transform.GetChild(0).GetComponent<RectTransform>().rect.Contains(mousePosition) && !deadZone.Contains(mousePosition))
-        //{
-        //    // Create a temporary PointerEventData object
-        //    PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
-        //    pointerEventData.position = mousePosition;
-
-        //    // Get all UI elements under the mouse cursor
-        //    List<RaycastResult> results = new List<RaycastResult>();
-        //    EventSystem.current.RaycastAll(pointerEventData, results);
-
-        //    // Check if any UI element is on the pipboy screen camera
-        //    foreach (RaycastResult result in results)
-        //    {
-        //        if (result.gameObject.GetComponent<Canvas>() != null &&
-        //            result.gameObject.GetComponent<Canvas>().worldCamera == pipboyScreenRef.GetComponent<Camera>())
-        //        {
-        //            // Invoke the button's onClick method
-        //            if (result.gameObject.GetComponent<Button>() != null)
-        //            {
-        //                result.gameObject.GetComponent<Button>().onClick.Invoke();
-        //            }
-        //        }
-        //        print(result.worldPosition);
-        //    }
-        //}
+      
 
     }
 
     private void UpdateTab()
     {
 
-        int playAnim = Random.Range(0, 2);
+        int playAnim = Random.Range(0, driveAndStaticsSounds.Length);
 
-        if(playAnim == 0)
+        if(playAnim >= 5 && playAnim <= 9)
         {
             StartCoroutine(FlickerScreen());
         }
@@ -167,7 +141,7 @@ public class PipBoy : MonoBehaviour
         pipBoyAnim.SetTrigger("changeTab");
         handAnim.SetTrigger("changeTab");
 
-        UISounds.clip = driveAndStaticsSounds[Random.Range(0, driveAndStaticsSounds.Length)];
+        UISounds.clip = driveAndStaticsSounds[playAnim];
         UISounds.Play();
 
         navigationSounds.clip = tabRightSound;
