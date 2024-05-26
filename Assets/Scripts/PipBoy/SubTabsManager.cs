@@ -18,22 +18,40 @@ public class SubTabsManager : MonoBehaviour
 
     public void switchIndex(int _index)
     {
+        PipBoy.instance.SubTabSound(_index);
+
         initialPos.x += subTabsText[index].GetComponent<RectTransform>().rect.width / 30;
         index += _index;
 
+        UpdateSubTab();
+    }
+
+    public void SetIndex(int _index)
+    {
+        PipBoy.instance.SubTabSound(_index - index);
+
+        initialPos.x += subTabsText[index].GetComponent<RectTransform>().rect.width / 30;
+        index = _index;
+
+        UpdateSubTab();
+    }
+
+    public void UpdateSubTab()
+    {
         if (index < 0)
         {
             index = 2;
         }
-        else if(index > 2) {
+        else if (index > 2)
+        {
             index = 0;
         }
 
         initialPos.x -= subTabsText[index].GetComponent<RectTransform>().rect.width / 30;
 
-        for(int i = 0; i < subTabsContent.Length; i++)
+        for (int i = 0; i < subTabsContent.Length; i++)
         {
-            if(i == index)
+            if (i == index)
             {
                 subTabsContent[i].SetActive(true);
             }
@@ -41,7 +59,7 @@ public class SubTabsManager : MonoBehaviour
             {
                 subTabsContent[i].SetActive(false);
             }
-           
+
         }
     }
 

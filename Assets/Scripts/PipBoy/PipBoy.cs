@@ -1,13 +1,10 @@
-using System;
 using UnityEngine;
 using System.Collections;
 using Random = UnityEngine.Random;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.UI;
-using System.Collections.Generic;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using System;
 
 
 public class PipBoy : MonoBehaviour
@@ -34,6 +31,8 @@ public class PipBoy : MonoBehaviour
     [SerializeField] private AudioClip[] driveAndStaticsSounds;
     [SerializeField] private AudioClip tabLeftSound;
     [SerializeField] private AudioClip tabRightSound;
+    [SerializeField] private AudioClip subTabLeftSound;
+    [SerializeField] private AudioClip subTabRightSound;
     [SerializeField] private AudioClip pibboyUp;
     [SerializeField] private AudioClip pibboyDown;
 
@@ -181,6 +180,21 @@ public class PipBoy : MonoBehaviour
         if (activeSubTab != null)
         {
             activeSubTab.switchIndex(index);
+        }
+    }
+
+    public void SubTabSound(int index)
+    {
+        handAnim.SetTrigger("changeSubTab");
+        if (index < 0)
+        {
+            UISounds.clip = subTabRightSound;
+            UISounds.Play();
+        }
+        else if (index > 0)
+        {
+            UISounds.clip = subTabLeftSound;
+            UISounds.Play();
         }
     }
 

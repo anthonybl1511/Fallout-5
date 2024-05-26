@@ -20,7 +20,7 @@ public class PipBoyAnimFOV : MonoBehaviour
     public void FocusOnPipboy()
     {
         isFocused = true;
-        StartCoroutine(AudioFade(IdleSound, 0.3f, 1));
+        StartCoroutine(AudioFade(IdleSound, 0.3f, 0.4f));
     }
 
     public void UnFocusOnPipboy()
