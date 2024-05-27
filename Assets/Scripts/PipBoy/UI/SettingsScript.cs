@@ -1,6 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
@@ -94,6 +95,11 @@ public class SettingsScript : MonoBehaviour
     {
         float volume = musicSlider.value;
         audioMixer.SetFloat("musicVol", Mathf.Log10(volume) * 20);
+    }
+
+    public void ChangeMouseSensitivity(Slider value)
+    {
+        MouseLook.instance.SetSensitivity(value.value);
     }
     public void ChangeSFX()
     {

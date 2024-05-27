@@ -36,8 +36,6 @@ public class PipBoy : MonoBehaviour
     [SerializeField] private AudioClip pibboyUp;
     [SerializeField] private AudioClip pibboyDown;
 
-    [SerializeField] private InputManager inputManager;
-
     private GameObject pipboyScreenRef;
     private LensDistortion lensDistortion;
 
@@ -124,11 +122,6 @@ public class PipBoy : MonoBehaviour
         pipboyScreenRef.transform.GetChild(0).GetChild(0).transform.localPosition = localPos;
     }
 
-    public void Click()
-    {
-      
-
-    }
 
     private void UpdateTab()
     {

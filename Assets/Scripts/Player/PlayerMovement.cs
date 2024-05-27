@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Windows;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -7,60 +8,46 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float speed = 11f;
     [SerializeField] private float airControl = 1f;
-    [SerializeField] private float jumpHeight = 3.5f;
+    [SerializeField] private float jumpHeight = 0.2f;
 
     [SerializeField] private LayerMask floorLayer;
 
     private Rigidbody rb;
-    private InputManager InputManager;
 
 
-    bool isGrounded, isJumping;
+    private bool isGrounded;
+    private Vector2 input;
 
 
     void Start()
     {
         instance = this;
         rb = GetComponent<Rigidbody>();
-        InputManager = GetComponent<InputManager>();
-
-        InputManager.inputMaster.Movement.Jump.started += _ => Jump();
     }
 
     private void Update()
     {
         isGrounded = Physics.CheckSphere(transform.position - Vector3.up, 0.1f, floorLayer);
-
-
     }
 
-    public InputManager GetInputManager()
-    {
-        return InputManager;
-    }
-
-    private void Jump()
+    public void Jump()
     {
         if (isGrounded && !PipBoy.instance.getActive())
         {
-            rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * 4, ForceMode.Impulse);
         }
     }
 
-    void FixedUpdate()
+    public void MovePlayer(Vector2 _input)
     {
-        if (!PipBoy.instance.getActive())
+        if(!PipBoy.instance.getActive())
         {
-            MovePlayer();
+            input = _input;
         }
     }
 
-    void MovePlayer()
+    private void FixedUpdate()
     {
-        Vector2 direction;
-        direction.y = InputManager.inputMaster.Movement.Forward.ReadValue<float>();
-        direction.x = InputManager.inputMaster.Movement.Right.ReadValue<float>();
-
         float friction;
 
         if (isGrounded)
@@ -77,14 +64,12 @@ public class PlayerMovement : MonoBehaviour
         Vector3 cameraForward = Camera.main.transform.forward;
         cameraForward.y = 0;
         cameraForward = cameraForward.normalized;
-
-        Vector3 targetVelocity = cameraForward * direction.y + Camera.main.transform.right * direction.x;
+        Vector3 targetVelocity = cameraForward * input.y + Camera.main.transform.right * input.x;
         targetVelocity = targetVelocity.normalized * speed;
 
 
         rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, -10, 10), Mathf.Clamp(rb.velocity.y, -10, 10), Mathf.Clamp(rb.velocity.z, -10, 10));
         rb.AddForce(new Vector3(targetVelocity.x, 0, targetVelocity.z) * Time.fixedDeltaTime * 500 * friction, ForceMode.Force);
-
     }
 
 }

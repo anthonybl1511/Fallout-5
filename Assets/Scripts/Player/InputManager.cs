@@ -3,28 +3,50 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
-    public NewControls inputMaster;
-
-    private void Awake()
+    public void MoveInput(InputAction.CallbackContext context)
     {
-        inputMaster = new NewControls();
-
-        inputMaster.PipBoyInput.click.started += _ => PipBoy.instance.Click();
-        inputMaster.PipBoyInput.OpenClose.started += _ => PipBoy.instance.OpenClose();
+        PlayerMovement.instance.MovePlayer(context.ReadValue<Vector2>());
     }
 
+    public void Look(InputAction.CallbackContext context)
+    {
+        MouseLook.instance.CameraLook(context.ReadValue<Vector2>());
+    }
+
+    public void Jump(InputAction.CallbackContext context)
+    {
+        if(context.ReadValueAsButton())
+        {
+            PlayerMovement.instance.Jump();
+        }
+    }
+
+    public void SwitchMenu(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            PipBoy.instance.ChangeIndex((int)context.ReadValue<float>());
+        }
+    }
+
+    public void SwitchSubTabs(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            PipBoy.instance.ChangeSubTabs((int)context.ReadValue<float>());
+        }
+    }
+
+    public void OpenPipBoy(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            PipBoy.instance.OpenClose();
+        }
+    }
+         
     private void Update()
     {
-        if (inputMaster.PipBoyInput.SwitchMenu.triggered)
-        {
-            PipBoy.instance.ChangeIndex((int)inputMaster.PipBoyInput.SwitchMenu.ReadValue<float>());
-        }
-
-        if (inputMaster.PipBoyInput.SwitchSubTabs.triggered)
-        {
-            PipBoy.instance.ChangeSubTabs((int)inputMaster.PipBoyInput.SwitchSubTabs.ReadValue<float>());
-        }
-
         if (PipBoy.instance.getActive())
         {
             if(Gamepad.current == null)
@@ -44,15 +66,5 @@ public class InputManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
-    }
-
-    private void OnEnable()
-    {
-        inputMaster.Enable();
-    }
-
-    private void OnDisable()
-    {
-        inputMaster.Disable();
     }
 }

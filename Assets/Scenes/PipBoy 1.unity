@@ -837,7 +837,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 10
-  InputManager: {fileID: 1140250544}
 --- !u!114 &963194231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -899,6 +898,7 @@ GameObject:
   - component: {fileID: 1140250543}
   - component: {fileID: 1140250544}
   - component: {fileID: 1140250541}
+  - component: {fileID: 1140250545}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1002,6 +1002,132 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e39ec560c6a7ae4eb9158538239fff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1140250545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140250538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 48b715d7124888c4587e5d8f9e57d84b, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1140250544}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: MoveInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b126fe7a-de45-4b5c-ac25-8306bd4ec2f6
+    m_ActionName: Movement/Forward[/Keyboard/w,/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1140250544}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: Jump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3917e784-06ad-43f3-83ce-53e680ce5c8a
+    m_ActionName: Movement/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1140250544}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: Look
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 81eac626-789e-488c-920f-aa65bd506441
+    m_ActionName: Movement/LookAxis[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1140250544}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: OpenPipBoy
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0a359c6c-e265-4d03-a45e-eca040fd92b1
+    m_ActionName: Movement/OpenClose[/Keyboard/tab]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1140250544}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: SwitchMenu
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c2d6e4cc-6cef-4aed-b862-f9f6f4c6b3fe
+    m_ActionName: Movement/SwitchMenu[/Keyboard/q,/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1140250544}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: SwitchSubTabs
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9a8161f8-9cb3-4b88-807b-a634d2b7210d
+    m_ActionName: Movement/SwitchSubTabs[/Keyboard/a,/Keyboard/d]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Movement
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1232307365 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3452112435388359821, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
@@ -1604,21 +1730,9 @@ PrefabInstance:
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
-    - target: {fileID: 1735471445829763771, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1767047630910799210, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1767047630910799210, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1767047630910799210, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
+    - target: {fileID: 1806713394779232839, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_Navigation.m_SelectOnLeft
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1963925766799772621, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
       propertyPath: uiSounds
@@ -1660,14 +1774,6 @@ PrefabInstance:
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
-    - target: {fileID: 3720338802598361754, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3720338802598361754, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3866862510363331781, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
       propertyPath: uiSounds
       value: 
@@ -1676,6 +1782,10 @@ PrefabInstance:
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
+    - target: {fileID: 4199488579540064097, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_Navigation.m_SelectOnLeft
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4523472752811540325, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
       propertyPath: uiSounds
       value: 
@@ -1700,10 +1810,6 @@ PrefabInstance:
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
-    - target: {fileID: 5175586326179752415, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5575351919965269485, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
       propertyPath: uiSounds
       value: 
@@ -1736,6 +1842,10 @@ PrefabInstance:
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
+    - target: {fileID: 6397982480253989002, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6586625619956671688, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
       propertyPath: uiSounds
       value: 
@@ -1824,10 +1934,6 @@ PrefabInstance:
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
-    - target: {fileID: 7938352642558895328, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8021986346560501757, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
       propertyPath: uiSounds
       value: 
@@ -1844,9 +1950,9 @@ PrefabInstance:
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
-    - target: {fileID: 8936138438727246076, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 8959660974472234594, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2082,7 +2188,12 @@ PrefabInstance:
       propertyPath: triggerTexts.Array.data[1]
       value: 
       objectReference: {fileID: 681990413}
-    m_RemovedComponents: []
+    - target: {fileID: 8812885426437879126, guid: f6bfe689f979b7b4dae75504550b3fb4, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: Movement
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8812885426437879126, guid: f6bfe689f979b7b4dae75504550b3fb4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
