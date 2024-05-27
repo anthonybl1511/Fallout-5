@@ -1,11 +1,13 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SubTabsManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] subTabsText;
     [SerializeField] private GameObject[] subTabsContent;
     [SerializeField] private float posOffset;
+    [SerializeField] private bool twoLastMenu = false;
 
     private Vector3 initialPos;
     private int index = 0;
@@ -18,31 +20,71 @@ public class SubTabsManager : MonoBehaviour
 
     public void switchIndex(int _index)
     {
+        PipBoy.instance.SubTabSound(_index);
+
         initialPos.x += subTabsText[index].GetComponent<RectTransform>().rect.width / 30;
         index += _index;
+
+        UpdateSubTab();
+    }
+
+    public void SetIndex(int _index)
+    {
+        PipBoy.instance.SubTabSound(_index - index);
+
+        initialPos.x += subTabsText[index].GetComponent<RectTransform>().rect.width / 30;
+        index = _index;
+
+        UpdateSubTab();
+    }
+
+    public void UpdateSubTab()
+    {
+
 
         if (index < 0)
         {
             index = 2;
         }
-        else if(index > 2) {
+        else if (index > 2)
+        {
             index = 0;
+        }
+
+        if (Gamepad.current != null && twoLastMenu && index == 2)
+        {
+            for (int i = 0; i < subTabsContent.Length; i++)
+            {
+                if (i == 3)
+                {
+                    subTabsContent[i].SetActive(true);
+                }
+                else
+                {
+                    subTabsContent[i].SetActive(false);
+                }
+
+            }
+        }
+        else
+        {
+            for (int i = 0; i < subTabsContent.Length; i++)
+            {
+                if (i == index)
+                {
+                    subTabsContent[i].SetActive(true);
+                }
+                else
+                {
+                    subTabsContent[i].SetActive(false);
+                }
+
+            }
         }
 
         initialPos.x -= subTabsText[index].GetComponent<RectTransform>().rect.width / 30;
 
-        for(int i = 0; i < subTabsContent.Length; i++)
-        {
-            if(i == index)
-            {
-                subTabsContent[i].SetActive(true);
-            }
-            else
-            {
-                subTabsContent[i].SetActive(false);
-            }
-           
-        }
+
     }
 
     private void Update()

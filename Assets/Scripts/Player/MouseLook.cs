@@ -7,11 +7,9 @@ public class MouseLook : MonoBehaviour
 {
     public static MouseLook instance;
 
-    [SerializeField] private float mouseSensitivity = 2;
-    [SerializeField] private InputManager InputManager;
-
-    private float Xrotation;
     private Volume postProcess;
+    private float sensitivity = 10;
+    private Vector2 mouseDelta;
 
     private void Start()
     {
@@ -20,20 +18,25 @@ public class MouseLook : MonoBehaviour
         postProcess = GetComponent<Volume>();
     }
 
-    private void Update()
+    public void CameraLook(Vector2 input)
     {
-
         if (!PipBoy.instance.getActive())
         {
-            Vector2 mouseLook;
-            mouseLook.y = InputManager.inputMaster.CameraLook.xAxis.ReadValue<float>() * mouseSensitivity * Time.deltaTime;
-            mouseLook.x = InputManager.inputMaster.CameraLook.yAxis.ReadValue<float>() * mouseSensitivity * Time.deltaTime;
+            mouseDelta.y = input.y * Time.deltaTime * sensitivity;
+            mouseDelta.y = Mathf.Clamp(mouseDelta.y, -85f, 85f);
+            mouseDelta.x = input.x;
+        }
+    }
 
-            Xrotation -= mouseLook.x;
+    public void SetSensitivity(float _sensitivity)
+    {
+        sensitivity = _sensitivity;
+    }
 
-            transform.localRotation = Quaternion.Euler(Mathf.Clamp(Xrotation, -90f, 90f), 0, 0);
-
-            PlayerMovement.instance.transform.Rotate(Vector3.up * mouseLook.y);
+    private void Update()
+    {
+        if(!PipBoy.instance.getActive())
+        {
 
             postProcess.enabled = false;
         }
@@ -41,6 +44,8 @@ public class MouseLook : MonoBehaviour
         {
             postProcess.enabled = true;
         }
-        
+
+        transform.localRotation *= Quaternion.Euler(-mouseDelta.y, 0, 0);
+        PlayerMovement.instance.transform.Rotate(Vector3.up * mouseDelta.x * Time.deltaTime * sensitivity);
     }
 }

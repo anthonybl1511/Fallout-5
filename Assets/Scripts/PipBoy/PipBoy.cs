@@ -1,13 +1,10 @@
-using System;
 using UnityEngine;
 using System.Collections;
 using Random = UnityEngine.Random;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.UI;
-using System.Collections.Generic;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using TMPro;
 
 
 public class PipBoy : MonoBehaviour
@@ -18,13 +15,12 @@ public class PipBoy : MonoBehaviour
     private Animator radioMoletteAnim;
     [SerializeField] private GameObject[] menuTabs;
     [SerializeField] private GameObject[] menuScreens;
+    [SerializeField] private GameObject[] triggerTexts;
     
 
     private SubTabsManager activeSubTab;
 
     private int menuIndex;
-    private int radioIndex;
-    private bool radioActive;
     private bool pipboyActive;
 
 
@@ -34,10 +30,10 @@ public class PipBoy : MonoBehaviour
     [SerializeField] private AudioClip[] driveAndStaticsSounds;
     [SerializeField] private AudioClip tabLeftSound;
     [SerializeField] private AudioClip tabRightSound;
+    [SerializeField] private AudioClip subTabLeftSound;
+    [SerializeField] private AudioClip subTabRightSound;
     [SerializeField] private AudioClip pibboyUp;
     [SerializeField] private AudioClip pibboyDown;
-
-    [SerializeField] private InputManager inputManager;
 
     private GameObject pipboyScreenRef;
     private LensDistortion lensDistortion;
@@ -57,6 +53,17 @@ public class PipBoy : MonoBehaviour
         if (pipboyScreenRef.GetComponent<Volume>().profile.TryGet<LensDistortion>(out LensDistortion ld))
         {
             lensDistortion = ld;
+        }
+
+        if (Gamepad.current != null)
+        {
+            triggerTexts[0].GetComponent<TextMeshProUGUI>().text = "RB";
+            triggerTexts[1].GetComponent<TextMeshProUGUI>().text = "LB";
+        }
+        else
+        {
+            triggerTexts[0].GetComponent<TextMeshProUGUI>().text = "A";
+            triggerTexts[1].GetComponent<TextMeshProUGUI>().text = "E";
         }
 
         ResetToNeutral();
@@ -89,14 +96,6 @@ public class PipBoy : MonoBehaviour
         }
 
     }
-
-    private void Update()
-    {
-        if(Gamepad.current != null)
-        {
-
-        }
-    }
     IEnumerator FlickerScreen()
     {
         float flickerTime = 0;
@@ -122,65 +121,95 @@ public class PipBoy : MonoBehaviour
         pipboyScreenRef.transform.GetChild(0).GetChild(0).transform.localPosition = localPos;
     }
 
-    public void Click()
-    {
-      
-
-    }
 
     private void UpdateTab()
     {
-
-        int playAnim = Random.Range(0, driveAndStaticsSounds.Length);
-
-        if(playAnim >= 5 && playAnim <= 9)
+        if(pipboyActive)
         {
-            StartCoroutine(FlickerScreen());
-        }
+            int playAnim = Random.Range(0, driveAndStaticsSounds.Length);
 
-        pipBoyAnim.SetTrigger("changeTab");
-        handAnim.SetTrigger("changeTab");
+            if (playAnim >= 5 && playAnim <= 9)
+            {
+                StartCoroutine(FlickerScreen());
+            }
 
-        UISounds.clip = driveAndStaticsSounds[playAnim];
-        UISounds.Play();
+            if (Gamepad.current != null)
+            {
+                triggerTexts[0].GetComponent<TextMeshProUGUI>().text = "RB";
+                triggerTexts[1].GetComponent<TextMeshProUGUI>().text = "LB";
+            }
+            else
+            {
+                triggerTexts[0].GetComponent<TextMeshProUGUI>().text = "A";
+                triggerTexts[1].GetComponent<TextMeshProUGUI>().text = "E";
+            }
 
-        navigationSounds.clip = tabRightSound;
-        navigationSounds.Play();
+            pipBoyAnim.SetTrigger("changeTab");
+            handAnim.SetTrigger("changeTab");
 
-        switch (menuIndex)
-        {
-            case 0:
-                GoToStats();
-                break;
-            case 1:
-                GoToInv();
-                break;
-            case 2:
-                GoToData();
-                break;
-            case 3:
-                GoToMap();
-                break;
-            case 4:
-                GoToRadio();
-                break;
+            UISounds.clip = driveAndStaticsSounds[playAnim];
+            UISounds.Play();
+
+            navigationSounds.clip = tabRightSound;
+            navigationSounds.Play();
+
+            switch (menuIndex)
+            {
+                case 0:
+                    GoToStats();
+                    break;
+                case 1:
+                    GoToInv();
+                    break;
+                case 2:
+                    GoToData();
+                    break;
+                case 3:
+                    GoToMap();
+                    break;
+                case 4:
+                    GoToRadio();
+                    break;
+            }
+            if (menuScreens[(menuScreens.Length - 1) - menuIndex].transform.GetChild(0).gameObject.GetComponent<SubTabsManager>() != null)
+            {
+                activeSubTab = menuScreens[(menuScreens.Length - 1) - menuIndex].transform.GetChild(0).gameObject.GetComponent<SubTabsManager>();
+
+            }
+            else
+            {
+                activeSubTab = null;
+            }
         }
-        if (menuScreens[(menuScreens.Length - 1) - menuIndex].transform.GetChild(0).gameObject.GetComponent<SubTabsManager>() != null)
-        {
-            activeSubTab = menuScreens[(menuScreens.Length - 1) - menuIndex].transform.GetChild(0).gameObject.GetComponent<SubTabsManager>();
-            
-        }
-        else
-        {
-            activeSubTab = null;
-        }
+       
     }
 
     public void ChangeSubTabs(int index)
     {
-        if (activeSubTab != null)
+        if(pipboyActive)
         {
-            activeSubTab.switchIndex(index);
+            if (activeSubTab != null)
+            {
+                activeSubTab.switchIndex(index);
+            }
+        }
+    }
+
+    public void SubTabSound(int index)
+    {
+        if(pipboyActive)
+        {
+            handAnim.SetTrigger("changeSubTab");
+            if (index < 0)
+            {
+                UISounds.clip = subTabRightSound;
+                UISounds.Play();
+            }
+            else if (index > 0)
+            {
+                UISounds.clip = subTabLeftSound;
+                UISounds.Play();
+            }
         }
     }
 
@@ -213,47 +242,12 @@ public class PipBoy : MonoBehaviour
         }
     }
 
-    public void navigate(int index)
-    {
-        if (pipboyActive) { 
-            if(radioActive)
-            {
-                if (index > 0)
-                {
-                    if (radioIndex < 1)
-                    {
-                        radioIndex++;
-                        radioMoletteAnim.SetBool("right", true);
-                        radioMoletteAnim.SetBool("left", false);
-
-                        handAnim.SetBool("rightRadio", false);
-                        handAnim.SetBool("leftRadio", true);
-                    }
-                }
-                if (index < 0)
-                {
-                    if (radioIndex > 0)
-                    {
-                        radioIndex--;
-                        radioMoletteAnim.SetBool("right", false);
-                        radioMoletteAnim.SetBool("left", true);
-
-                        handAnim.SetBool("rightRadio", true);
-                        handAnim.SetBool("leftRadio", false);
-                    }
-                }
-            }
-            else
-            {
-                 
-            }
-        }
-    }
-
     public void OpenClose()
     {
         if (pipboyActive)
         {
+            SetIndex(0);
+
             navigationSounds.clip = pibboyDown;
             navigationSounds.Play();
 
@@ -298,7 +292,6 @@ public class PipBoy : MonoBehaviour
     }
     private void GoToStats()
     {
-        radioActive = false;
         for (int i = 0; i < menuTabs.Length; i++)
         {
             if(i != 4)
@@ -335,8 +328,6 @@ public class PipBoy : MonoBehaviour
     }
     private void GoToInv()
     {
-        radioActive = false;
-
         for (int i = 0; i < menuTabs.Length; i++)
         {
             if (i != 3)
@@ -374,8 +365,6 @@ public class PipBoy : MonoBehaviour
     }
     private void GoToData()
     {
-        radioActive = false;
-
         for (int i = 0; i < menuTabs.Length; i++)
         {
             if (i != 2)
@@ -413,8 +402,6 @@ public class PipBoy : MonoBehaviour
     }
     private void GoToMap()
     {
-        radioActive = false;
-
         for (int i = 0; i < menuTabs.Length; i++)
         {
             if (i != 1)
@@ -451,8 +438,6 @@ public class PipBoy : MonoBehaviour
     }
     private void GoToRadio()
     {
-        radioActive = true;
-
         for (int i = 0; i < menuTabs.Length; i++)
         {
             if (i != 0)
