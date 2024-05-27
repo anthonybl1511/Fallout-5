@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float speed = 11f;
     [SerializeField] private float airControl = 1f;
-    [SerializeField] private float jumpHeight = 0.2f;
 
     [SerializeField] private LayerMask floorLayer;
 

@@ -357,7 +357,7 @@ AudioSource:
   m_GameObject: {fileID: 690970827}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -358484865594357095, guid: d37e139fc3705504d8a6d11bba2f4bb7, type: 2}
   m_audioClip: {fileID: 8300000, guid: 3c76bb8f29d8e794c97103c16d17ff1f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0
@@ -836,7 +836,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e99ad3bdc73b3f49ac41f53b18aa665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 10
 --- !u!114 &963194231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -959,7 +958,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   airControl: 0.81
-  jumpHeight: 7
   floorLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -1730,10 +1728,6 @@ PrefabInstance:
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
-    - target: {fileID: 1806713394779232839, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
-      propertyPath: m_Navigation.m_SelectOnLeft
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1963925766799772621, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
       propertyPath: uiSounds
       value: 
@@ -1782,10 +1776,6 @@ PrefabInstance:
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
-    - target: {fileID: 4199488579540064097, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
-      propertyPath: m_Navigation.m_SelectOnLeft
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4523472752811540325, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
       propertyPath: uiSounds
       value: 
@@ -1842,10 +1832,6 @@ PrefabInstance:
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
-    - target: {fileID: 6397982480253989002, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
-      propertyPath: m_Navigation.m_SelectOnDown
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6586625619956671688, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
       propertyPath: uiSounds
       value: 
@@ -1950,10 +1936,6 @@ PrefabInstance:
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
-    - target: {fileID: 8959660974472234594, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
-      propertyPath: m_Navigation.m_SelectOnDown
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2072,10 +2054,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2101923463148610464, guid: f6bfe689f979b7b4dae75504550b3fb4, type: 3}
-      propertyPath: m_Navigation.m_Mode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2758613682806703605, guid: f6bfe689f979b7b4dae75504550b3fb4, type: 3}
       propertyPath: m_Name
       value: PIPBOY
@@ -2120,22 +2098,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3704749543054361154, guid: f6bfe689f979b7b4dae75504550b3fb4, type: 3}
-      propertyPath: m_Navigation.m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3972574711376972363, guid: f6bfe689f979b7b4dae75504550b3fb4, type: 3}
-      propertyPath: m_Navigation.m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4559686079453447564, guid: f6bfe689f979b7b4dae75504550b3fb4, type: 3}
-      propertyPath: m_Navigation.m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672609990193258577, guid: f6bfe689f979b7b4dae75504550b3fb4, type: 3}
-      propertyPath: m_Navigation.m_Mode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8003796980001093629, guid: f6bfe689f979b7b4dae75504550b3fb4, type: 3}
       propertyPath: menuTabs.Array.data[0]
       value: 
@@ -2156,10 +2118,6 @@ PrefabInstance:
       propertyPath: menuTabs.Array.data[4]
       value: 
       objectReference: {fileID: 329243227}
-    - target: {fileID: 8003796980001093629, guid: f6bfe689f979b7b4dae75504550b3fb4, type: 3}
-      propertyPath: triggerTexts.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8003796980001093629, guid: f6bfe689f979b7b4dae75504550b3fb4, type: 3}
       propertyPath: menuScreens.Array.data[0]
       value: 
@@ -2188,12 +2146,7 @@ PrefabInstance:
       propertyPath: triggerTexts.Array.data[1]
       value: 
       objectReference: {fileID: 681990413}
-    - target: {fileID: 8812885426437879126, guid: f6bfe689f979b7b4dae75504550b3fb4, type: 3}
-      propertyPath: m_DefaultActionMap
-      value: Movement
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8812885426437879126, guid: f6bfe689f979b7b4dae75504550b3fb4, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

@@ -21,7 +21,6 @@ public class PipBoy : MonoBehaviour
     private SubTabsManager activeSubTab;
 
     private int menuIndex;
-    private bool radioActive;
     private bool pipboyActive;
 
 
@@ -247,6 +246,8 @@ public class PipBoy : MonoBehaviour
     {
         if (pipboyActive)
         {
+            SetIndex(0);
+
             navigationSounds.clip = pibboyDown;
             navigationSounds.Play();
 
@@ -291,7 +292,6 @@ public class PipBoy : MonoBehaviour
     }
     private void GoToStats()
     {
-        radioActive = false;
         for (int i = 0; i < menuTabs.Length; i++)
         {
             if(i != 4)
@@ -328,8 +328,6 @@ public class PipBoy : MonoBehaviour
     }
     private void GoToInv()
     {
-        radioActive = false;
-
         for (int i = 0; i < menuTabs.Length; i++)
         {
             if (i != 3)
@@ -367,8 +365,6 @@ public class PipBoy : MonoBehaviour
     }
     private void GoToData()
     {
-        radioActive = false;
-
         for (int i = 0; i < menuTabs.Length; i++)
         {
             if (i != 2)
@@ -406,8 +402,6 @@ public class PipBoy : MonoBehaviour
     }
     private void GoToMap()
     {
-        radioActive = false;
-
         for (int i = 0; i < menuTabs.Length; i++)
         {
             if (i != 1)
@@ -444,8 +438,6 @@ public class PipBoy : MonoBehaviour
     }
     private void GoToRadio()
     {
-        radioActive = true;
-
         for (int i = 0; i < menuTabs.Length; i++)
         {
             if (i != 0)
