@@ -21,6 +21,7 @@ public class ButtonHoverScript : MonoBehaviour
     [SerializeField] private AudioClip radioSelectSound;
     [SerializeField] private AudioClip radioUnselectSound;
     [SerializeField] private AudioSource radioMusic;
+    [SerializeField] private GameObject[] soundWave;
 
     private string initalText;
     void Start()
@@ -97,6 +98,8 @@ public class ButtonHoverScript : MonoBehaviour
 
             uiSounds.clip = radioUnselectSound;
             uiSounds.Play();
+            soundWave[0].SetActive(true);
+            soundWave[1].SetActive(false);
 
             isEquiped = false;
             text.text = initalText;
@@ -112,6 +115,9 @@ public class ButtonHoverScript : MonoBehaviour
 
             uiSounds.clip = radioSelectSound;
             uiSounds.Play();
+
+            soundWave[0].SetActive(false);
+            soundWave[1].SetActive(true);
 
             isEquiped = true;
             text.text = "■ " + initalText;

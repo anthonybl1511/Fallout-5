@@ -683,6 +683,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &836899259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4264173259123245371, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+  m_PrefabInstance: {fileID: 1930754372}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1599,6 +1604,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1741526012 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 387105422717470197, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+  m_PrefabInstance: {fileID: 1930754372}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1840048652
 GameObject:
   m_ObjectHideFlags: 0
@@ -1720,6 +1730,10 @@ PrefabInstance:
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
+    - target: {fileID: 387105422717470197, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 967635467141852201, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
       propertyPath: uiSounds
       value: 
@@ -1776,6 +1790,10 @@ PrefabInstance:
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
+    - target: {fileID: 4264173259123245371, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4523472752811540325, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
       propertyPath: uiSounds
       value: 
@@ -1800,6 +1818,10 @@ PrefabInstance:
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
+    - target: {fileID: 5437404737639572778, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5575351919965269485, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
       propertyPath: uiSounds
       value: 
@@ -1832,6 +1854,10 @@ PrefabInstance:
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
+    - target: {fileID: 6503500956156238310, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 81.899994
+      objectReference: {fileID: 0}
     - target: {fileID: 6586625619956671688, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
       propertyPath: uiSounds
       value: 
@@ -1912,6 +1938,18 @@ PrefabInstance:
       propertyPath: radioMusic
       value: 
       objectReference: {fileID: 690970828}
+    - target: {fileID: 7903693677685425014, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: soundWave.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7903693677685425014, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: soundWave.Array.data[0]
+      value: 
+      objectReference: {fileID: 1741526012}
+    - target: {fileID: 7903693677685425014, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: soundWave.Array.data[1]
+      value: 
+      objectReference: {fileID: 836899259}
     - target: {fileID: 7908279161249417512, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
       propertyPath: uiSounds
       value: 
@@ -1928,6 +1966,10 @@ PrefabInstance:
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
+    - target: {fileID: 8102456883891042743, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8688276013730994365, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
       propertyPath: uiSounds
       value: 
@@ -1936,6 +1978,10 @@ PrefabInstance:
       propertyPath: uiSounds2
       value: 
       objectReference: {fileID: 1540454575}
+    - target: {fileID: 9033723527996450583, guid: dbe8e28440ee7244684aca1b7271b63e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 81.899994
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
