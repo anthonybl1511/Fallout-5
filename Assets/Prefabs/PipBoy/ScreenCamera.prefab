@@ -4632,7 +4632,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &9003870472136125785
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7195,7 +7195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3409410611289597199
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8235,7 +8235,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: D-Pad/Left [Gamepad]/D-Pad/Right [Gamepad]
+  m_Text: D-Pad Left [Xbox Controller]/D-Pad Right [Xbox Controller]
 --- !u!1 &2582813278254837845
 GameObject:
   m_ObjectHideFlags: 0
@@ -26952,7 +26952,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Left Stick/Up/Left Stick/Left/Left Stick/Down/Left Stick/Right
+  m_Text: Left Stick Up/Left Stick Left/Left Stick Down/Left Stick Right
 --- !u!1 &8656609637360397012
 GameObject:
   m_ObjectHideFlags: 0
