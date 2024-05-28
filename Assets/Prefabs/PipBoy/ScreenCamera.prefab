@@ -1266,7 +1266,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 146.4, y: 81.9}
+  m_AnchoredPosition: {x: 146.4, y: 81.899994}
   m_SizeDelta: {x: 227.71, y: 195}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7116741908520125135
@@ -2578,6 +2578,7 @@ MonoBehaviour:
   radioSelectSound: {fileID: 0}
   radioUnselectSound: {fileID: 0}
   radioMusic: {fileID: 0}
+  soundWave: []
 --- !u!114 &8852124548732460495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4816,6 +4817,7 @@ MonoBehaviour:
   radioSelectSound: {fileID: 0}
   radioUnselectSound: {fileID: 0}
   radioMusic: {fileID: 0}
+  soundWave: []
 --- !u!114 &6672406517290140012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5378,6 +5380,7 @@ MonoBehaviour:
   radioSelectSound: {fileID: 0}
   radioUnselectSound: {fileID: 0}
   radioMusic: {fileID: 0}
+  soundWave: []
 --- !u!114 &2976834317764043693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5978,6 +5981,7 @@ MonoBehaviour:
   radioSelectSound: {fileID: 0}
   radioUnselectSound: {fileID: 0}
   radioMusic: {fileID: 0}
+  soundWave: []
 --- !u!114 &8866918032139841235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8778,6 +8782,9 @@ MonoBehaviour:
   radioSelectSound: {fileID: 8300000, guid: c9a13f18aa265ca4d9858aa83d490621, type: 3}
   radioUnselectSound: {fileID: 8300000, guid: bc55096459b5c0b4288b44540b76a139, type: 3}
   radioMusic: {fileID: 0}
+  soundWave:
+  - {fileID: 387105422717470197}
+  - {fileID: 4264173259123245371}
 --- !u!114 &4616947039103450851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9482,6 +9489,7 @@ MonoBehaviour:
   radioSelectSound: {fileID: 0}
   radioUnselectSound: {fileID: 0}
   radioMusic: {fileID: 0}
+  soundWave: []
 --- !u!114 &2586627986316670939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9694,6 +9702,7 @@ MonoBehaviour:
   radioSelectSound: {fileID: 0}
   radioUnselectSound: {fileID: 0}
   radioMusic: {fileID: 0}
+  soundWave: []
 --- !u!114 &9099814433574646094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10623,6 +10632,7 @@ MonoBehaviour:
   radioSelectSound: {fileID: 0}
   radioUnselectSound: {fileID: 0}
   radioMusic: {fileID: 0}
+  soundWave: []
 --- !u!114 &6561756570654374587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13410,7 +13420,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6503500956156238310
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13427,7 +13437,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 146.4, y: 81.9}
+  m_AnchoredPosition: {x: 146.4, y: 81.899994}
   m_SizeDelta: {x: 227.71, y: 195}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!328 &8102456883891042743
@@ -13460,7 +13470,7 @@ VideoPlayer:
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_SkipOnDrop: 1
   m_Looping: 1
   m_WaitForFirstFrame: 0
@@ -14697,6 +14707,7 @@ MonoBehaviour:
   radioSelectSound: {fileID: 0}
   radioUnselectSound: {fileID: 0}
   radioMusic: {fileID: 0}
+  soundWave: []
 --- !u!114 &6832933036125836705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17000,6 +17011,7 @@ MonoBehaviour:
   radioSelectSound: {fileID: 0}
   radioUnselectSound: {fileID: 0}
   radioMusic: {fileID: 0}
+  soundWave: []
 --- !u!114 &255958972930035401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17321,6 +17333,7 @@ MonoBehaviour:
   radioSelectSound: {fileID: 0}
   radioUnselectSound: {fileID: 0}
   radioMusic: {fileID: 0}
+  soundWave: []
 --- !u!114 &250677501701022630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17655,6 +17668,7 @@ MonoBehaviour:
   radioSelectSound: {fileID: 0}
   radioUnselectSound: {fileID: 0}
   radioMusic: {fileID: 0}
+  soundWave: []
 --- !u!114 &4396718657654307252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20721,6 +20735,7 @@ MonoBehaviour:
   radioSelectSound: {fileID: 0}
   radioUnselectSound: {fileID: 0}
   radioMusic: {fileID: 0}
+  soundWave: []
 --- !u!114 &4698614603641058257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21452,6 +21467,7 @@ MonoBehaviour:
   radioSelectSound: {fileID: 0}
   radioUnselectSound: {fileID: 0}
   radioMusic: {fileID: 0}
+  soundWave: []
 --- !u!114 &4442808604399215243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21977,6 +21993,7 @@ MonoBehaviour:
   radioSelectSound: {fileID: 0}
   radioUnselectSound: {fileID: 0}
   radioMusic: {fileID: 0}
+  soundWave: []
 --- !u!114 &6010848405594341694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23412,6 +23429,7 @@ MonoBehaviour:
   radioSelectSound: {fileID: 0}
   radioUnselectSound: {fileID: 0}
   radioMusic: {fileID: 0}
+  soundWave: []
 --- !u!114 &7277035920662894587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24241,6 +24259,7 @@ MonoBehaviour:
   radioSelectSound: {fileID: 0}
   radioUnselectSound: {fileID: 0}
   radioMusic: {fileID: 0}
+  soundWave: []
 --- !u!114 &7135597963501332811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24717,6 +24736,7 @@ MonoBehaviour:
   radioSelectSound: {fileID: 0}
   radioUnselectSound: {fileID: 0}
   radioMusic: {fileID: 0}
+  soundWave: []
 --- !u!114 &8566096644342828800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25783,6 +25803,7 @@ MonoBehaviour:
   radioSelectSound: {fileID: 0}
   radioUnselectSound: {fileID: 0}
   radioMusic: {fileID: 0}
+  soundWave: []
 --- !u!1 &8288217876135282348
 GameObject:
   m_ObjectHideFlags: 0
@@ -26671,6 +26692,7 @@ MonoBehaviour:
   radioSelectSound: {fileID: 0}
   radioUnselectSound: {fileID: 0}
   radioMusic: {fileID: 0}
+  soundWave: []
 --- !u!114 &6789201461055048255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27086,6 +27108,7 @@ MonoBehaviour:
   radioSelectSound: {fileID: 0}
   radioUnselectSound: {fileID: 0}
   radioMusic: {fileID: 0}
+  soundWave: []
 --- !u!114 &2226646797007071391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27632,6 +27655,7 @@ MonoBehaviour:
   radioSelectSound: {fileID: 0}
   radioUnselectSound: {fileID: 0}
   radioMusic: {fileID: 0}
+  soundWave: []
 --- !u!114 &5305065701149793309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29047,6 +29071,7 @@ MonoBehaviour:
   radioSelectSound: {fileID: 0}
   radioUnselectSound: {fileID: 0}
   radioMusic: {fileID: 0}
+  soundWave: []
 --- !u!114 &2838020253492645053
 MonoBehaviour:
   m_ObjectHideFlags: 0
